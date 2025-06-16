@@ -1,0 +1,39 @@
+# Archivos de sistema
+.DS_Store
+
+# Node.js (si se usa npm o gulp)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos de build (si se usa algún bundler)
+dist/
+build/
+
+# MacOS trash
+.Trashes
+
+# Archivos temporales
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+
+# Archivos de editor
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Archivos WordPress generados
+screenshot.png
+
+# Composer
+vendor/
+composer.lock
+
+# Otros
+.env
+.env.*

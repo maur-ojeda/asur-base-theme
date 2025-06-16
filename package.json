@@ -1,0 +1,23 @@
+{
+    "name": "asur-base-theme",
+    "version": "1.0.0",
+    "description": "Tema agnóstico para WordPress con Bootstrap 5",
+    "scripts": {
+        "dev": "npm-run-all css:dev js:dev",
+        "build": "npm-run-all css:build js:build",
+        "css:dev": "sass src/scss/style.scss dist/css/style.min.css --style=compressed --no-source-map",
+        "css:build": "sass src/scss/style.scss dist/css/style.min.css --style=compressed",
+        "js:dev": "esbuild src/js/app.js --bundle --outfile=dist/js/app.min.js --minify",
+        "js:build": "esbuild src/js/app.js --bundle --outfile=dist/js/app.min.js --minify"
+    },
+    "author": "mojeda",
+    "license": "MIT",
+    "devDependencies": {
+        "esbuild": "^0.25.5",
+        "npm-run-all": "^4.1.5",
+        "sass": "^1.73.0"
+    },
+    "dependencies": {
+        "bootstrap": "^5.3.6"
+    }
+}
