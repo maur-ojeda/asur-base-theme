@@ -20,3 +20,5 @@ require_once get_template_directory() . '/inc/enqueue.php';
 foreach (glob(__DIR__ . '/inc/custom-post-types/*.php') as $cpt_file) {
     require_once $cpt_file;
 }
+//Exportar campos ACF como código PHP
+require get_template_directory() . '/inc/acf-fields.php';

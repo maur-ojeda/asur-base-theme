@@ -1,7 +1,43 @@
-<?php get_header(); ?>
+<?php
+/* Template Name: Front Page OnePage */
 
-<?php get_template_part('template-parts/hero'); ?>
-<?php get_template_part('template-parts/services'); ?>
-<!-- Otras secciones aquí -->
+get_header();
+?>
+
+<main id="main-content">
+
+    <section id="hero">
+        <?php get_template_part('template-parts/section', 'hero'); ?>
+    </section>
+
+    <section id="services">
+        <?php get_template_part('template-parts/section', 'services'); ?>
+    </section>
+
+    <section id="whatwedo">
+        <?php get_template_part('template-parts/section', 'whatwedo'); ?>
+    </section>
+
+    <section id="products">
+        <?php get_template_part('template-parts/section', 'products'); ?>
+    </section>
+
+    <section id="gallerie">
+        <?php get_template_part('template-parts/section', 'gallerie'); ?>
+    </section>
+
+    <section id="clients">
+        <?php get_template_part('template-parts/section', 'clients'); ?>
+    </section>
+
+    <section id="testimonial">
+        <?php get_template_part('template-parts/section', 'testimonial'); ?>
+    </section>
+
+    <section id="contact">
+        <?php get_template_part('template-parts/section', 'contact'); ?>
+    </section>
+
+</main>
 
 <?php get_footer(); ?>
