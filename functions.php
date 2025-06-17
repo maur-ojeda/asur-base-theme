@@ -21,4 +21,8 @@ foreach (glob(__DIR__ . '/inc/custom-post-types/*.php') as $cpt_file) {
     require_once $cpt_file;
 }
 //Exportar campos ACF como código PHP
-require get_template_directory() . '/inc/acf-fields.php';
+add_action('acf/init', function () {
+    foreach (glob(__DIR__ . '/inc/acf-fields/*.php') as $acf_fields) {
+        require_once $acf_fields;
+    }
+});
