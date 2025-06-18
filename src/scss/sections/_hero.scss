@@ -1,0 +1,63 @@
+#hero.hero-section {
+  position: relative;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  color: $light; // que ya definiste como #EDE3D6 o blanco suave
+
+  // Overlay oscuro semitransparente para mejorar contraste
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(129, 20, 51, 0.3);
+    z-index: 1;
+  }
+
+  > .container {
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  h1,
+  p {
+    // Opcional si quieres un poco más de definición en textos grandes
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  
+  p {
+  
+  font-size: 14px!important;
+  font-weight: 100!important;
+  }
+
+
+  .btn-primary,.btn-outline-light{
+    font-size: 14px!important;
+    font-weight: 100!important;
+    padding: 20px 30px;
+  }
+
+  .btn-primary {
+    background-color: $primary;
+    border-color: $primary;
+
+    &:hover {
+      background-color: darken($primary, 7%);
+      border-color: darken($primary, 7%);
+    }
+  }
+
+  .btn-outline-light {
+    color: $light;
+    border-color: $light;
+
+    &:hover {
+      background-color: $light;
+      color: $dark;
+    }
+  }
+}

@@ -1,0 +1,69 @@
+#services {
+    background-color: $light; // #EDE3D6
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  
+    .container.text-center {
+      margin-bottom: 3rem;
+  
+      h2 {
+        font-family: $font-primary;
+        color: $dark; // #4D2E1E
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+  
+      p.lead {
+        font-family: $font-secondary;
+        color: darken($body-color, 15%);
+        font-weight: 400;
+      }
+    }
+  
+    .row.mb-5 {
+      margin-bottom: 3rem;
+  
+      .col-md-6 {
+        // Imagen o carrusel con borde redondeado y sombra sutil
+        img,
+        .carousel-inner {
+          border-radius: 0.5rem;
+          box-shadow: 0 4px 15px rgba($dark, 0.15);
+        }
+      }
+  
+      h3 {
+        font-family: $font-primary;
+        font-weight: 600;
+        color: $primary; // #811433
+        margin-bottom: 1rem;
+      }
+  
+      p.text-muted {
+        font-family: $font-secondary;
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
+        color: $dark;
+        opacity: 0.8;
+      }
+  
+      ul.list-unstyled {
+        li {
+          font-family: $font-secondary;
+          font-size: 1rem;
+          color: $dark;
+          opacity: 0.85;
+          margin-bottom: 0.75rem;
+  
+          span.text-primary {
+            color: $primary;
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+  

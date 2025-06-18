@@ -13,6 +13,14 @@ function asur_theme_setup() {
 }
 add_action('after_setup_theme', 'asur_theme_setup');
 
+
+add_filter('use_block_editor_for_post_type', function($use_block_editor, $post_type) {
+    if ($post_type === 'service') {
+        return false;
+    }
+    return $use_block_editor;
+}, 10, 2);
+
 // Encolar scripts y estilos
 require_once get_template_directory() . '/inc/enqueue.php';
 
