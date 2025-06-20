@@ -1,37 +1,34 @@
-<section id="gallerie" class="py-5">
-    <div class="container">
-        <div class="row mb-4">
-            <div class="col text-center">
-                <h2 class="section-title">Galería</h2>
-                <p class="section-subtitle">Una muestra de nuestro trabajo</p>
-            </div>
-        </div>
+<?php
+$args = array(
+    'post_type'      => 'gallery',
+    'posts_per_page' => 1,
+    'post_status'    => 'publish',
+    'orderby'        => 'date',
+    'order'          => 'DESC',
+);
 
-        <div class="row g-4">
-            <?php
-            $gallery_query = new WP_Query(array(
-                'post_type' => 'gallery',
-                'posts_per_page' => 12,
-                'post_status' => 'publish',
-                'orderby' => 'date',
-                'order' => 'DESC',
-            ));
+$query = new WP_Query($args);
 
-            if ($gallery_query->have_posts()) :
-                while ($gallery_query->have_posts()) : $gallery_query->the_post();
-                    $image = get_field('gallery_image');
-                    $image_url = $image ?: 'https://picsum.photos/600/400?random=' . rand(1, 1000);
-            ?>
-                <div class="col-md-4">
-                    <img src="<?php echo esc_url($image_url); ?>" class="img-fluid rounded" alt="Imagen galería">
+if ($query->have_posts()) :
+    while ($query->have_posts()) : $query->the_post(); 
+
+
+$shortcode = carbon_get_the_post_meta('gallery_shortcode');
+?>
+
+        <section id="gallery" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-4"><?php the_title(); ?></h2>
+                <div class="text-center">
+                    <?php the_content(); ?>
                 </div>
-            <?php
-                endwhile;
-                wp_reset_postdata();
-            else:
-                echo '<p class="text-center">Aún no hay imágenes en la galería.</p>';
-            endif;
-            ?>
-        </div>
-    </div>
-</section>
+
+                <div class="text-center">
+                    <?php echo do_shortcode($shortcode); ?>
+                </div>
+            </div>
+        </section>
+    <?php endwhile;
+    wp_reset_postdata();
+endif;
+?>

@@ -1,20 +1,23 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-    <div class="container">
-        <a class="navbar-brand" href="#">LOGO</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="mainNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#hero">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="#services">Servicios</a></li>
-                <li class="nav-item"><a class="nav-link" href="#whatwedo">Qué Hacemos</a></li>
-                <li class="nav-item"><a class="nav-link" href="#products">Productos</a></li>
-                <li class="nav-item"><a class="nav-link" href="#gallery">Galería</a></li>
-                <li class="nav-item"><a class="nav-link" href="#clients">Clientes</a></li>
-                <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonios</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
-            </ul>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-transparent transition-navbar py-3">
+  <div class="container" data-aos="fade-up" 
+                        data-aos-delay="400">
+    <a class="navbar-brand" href="#">LOGO</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+            <?php
+            wp_nav_menu([
+                'theme_location' => 'main_menu',
+                'menu_class'     => 'navbar-nav ms-auto',
+                'container'      => false,
+                'walker'         => new Bootstrap_5_Walker_Nav_Menu(), 
+            ]);
+            ?>
+           <a href="#contact" class="btn btn-primary ms-lg-3 d-none d-lg-inline-flex align-items-center">
+                Contáctanos
+            </a>
         </div>
-    </div>
+  </div>
 </nav>
+

@@ -1,17 +1,26 @@
-#hero.hero-section {
+/* Overlay Hero */
+.hero-section {
   position: relative;
   min-height: 100vh;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  color: $light; // que ya definiste como #EDE3D6 o blanco suave
+  color: $light; // Asegúrate de que esta variable esté definida (por ejemplo: #EDE3D6)
 
-  // Overlay oscuro semitransparente para mejorar contraste
+  .overlay {
+    z-index: 0;
+  }
+
+  .z-1 {
+    z-index: 1;
+  }
+
+  /* Overlay oscuro semitransparente para mejorar contraste */
   &::before {
     content: "";
     position: absolute;
     inset: 0;
-    background-color: rgba(129, 20, 51, 0.3);
+    background-color: rgba(0, 0, 0, 0.3);
     z-index: 1;
   }
 
@@ -23,22 +32,18 @@
 
   h1,
   p {
-    // Opcional si quieres un poco más de definición en textos grandes
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
 
-  
-  p {
-  
-  font-size: 14px!important;
-  font-weight: 100!important;
-  }
-
-
-  .btn-primary,.btn-outline-light{
-    font-size: 14px!important;
+ p {
     font-weight: 100!important;
-    padding: 20px 30px;
+  }
+  
+
+  .btn-primary,
+  .btn-outline-light {
+    border-radius: 4px;
+  font-size: 0.9rem;  
   }
 
   .btn-primary {
@@ -58,6 +63,21 @@
     &:hover {
       background-color: $light;
       color: $dark;
+    }
+  }
+}
+
+/* Animación Zoom In para hero */
+.hero-zoom {
+  animation: heroZoomIn 10s ease-out forwards;
+  background-size: 105%; /* inicia con un poco de zoom */
+
+  @keyframes heroZoomIn {
+    0% {
+      background-size: 110%;
+    }
+    100% {
+      background-size: 100%;
     }
   }
 }

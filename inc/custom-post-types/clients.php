@@ -13,7 +13,7 @@ function register_cpt_client() {
         ),
         'public' => true,
         'menu_icon' => 'dashicons-groups',
-        'supports' => array('title'),
+        'supports' => array('title', 'editor'),
         'show_in_rest' => true,
         'has_archive' => false,
         'rewrite' => false,

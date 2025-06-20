@@ -1,0 +1,15 @@
+{
+    "name": "asur/base-theme",
+    "description": "Tema base WordPress Asur con Carbon Fields",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Mauricio Ojeda",
+            "email": "email@ejemplo.com"
+        }
+    ],
+    "require": {
+        "htmlburger/carbon-fields": "^3.6"
+    }
+}

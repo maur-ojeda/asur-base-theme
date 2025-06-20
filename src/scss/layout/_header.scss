@@ -1,0 +1,41 @@
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 1030;
+  background: transparent;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+  &.scrolled {
+    background-color: #fff!important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    .nav-link,
+    .navbar-brand {
+      color: #000 !important;
+    }
+  }
+
+  .nav-link {
+    color: #fff;
+    transition: color 0.3s;
+  }
+}
+
+.navbar .btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &.btn-primary {
+    background-color: $primary;
+    border: none;
+
+    &:hover {
+      background-color: darken($primary, 5%);
+    }
+  }
+}

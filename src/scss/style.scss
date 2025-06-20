@@ -1,6 +1,9 @@
 @import 'abstracts/variables';
 @import "../../node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/aos/dist/aos.css";
 @import 'base/typography'; 
 
+@import 'layout/header'; 
 @import 'sections/hero'; 
 @import 'sections/services'; 
+

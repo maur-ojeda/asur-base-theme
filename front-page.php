@@ -6,17 +6,17 @@ get_header();
 
 <main id="main-content">
 
-    <section id="hero">
+    
         <?php get_template_part('template-parts/section', 'hero'); ?>
-    </section>
+    
 
-    <section id="services">
+    
         <?php get_template_part('template-parts/section', 'services'); ?>
-    </section>
+    
 
-    <section id="whatwedo">
+    
         <?php get_template_part('template-parts/section', 'whatwedo'); ?>
-    </section>
+    
 
     <section id="products">
         <?php get_template_part('template-parts/section', 'products'); ?>

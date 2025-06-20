@@ -13,7 +13,7 @@ function register_cpt_gallery() {
         ),
         'public' => true,
         'menu_icon' => 'dashicons-format-gallery',
-        'supports' => array('title'),
+        'supports' => array('title', 'editor'), // Solo título y editor
         'show_in_rest' => true,
         'has_archive' => false,
         'rewrite' => false,

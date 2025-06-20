@@ -12,7 +12,7 @@ function register_cpt_testimonial() {
         ),
         'public' => true,
         'menu_icon' => 'dashicons-format-quote',
-        'supports' => array('title'),
+        'supports' => array('title', 'editor'),
         'show_in_rest' => true,
         'has_archive' => false,
         'rewrite' => false,

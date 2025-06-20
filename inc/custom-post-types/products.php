@@ -14,7 +14,7 @@ function register_cpt_product() {
         ),
         'public' => true,
         'menu_icon' => 'dashicons-cart',
-        'supports' => array('title'),
+        'supports' => array('title', 'editor', 'page-attributes'),
         'show_in_rest' => true,
         'has_archive' => false,
         'rewrite' => false,
