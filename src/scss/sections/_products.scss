@@ -1,0 +1,51 @@
+#products {
+@extend .py-10;
+@extend .bg-white;
+
+.intro-section{
+    h1 {
+        @extend .text-primary;
+    }
+    p {
+        @extend .lead;
+        @extend .text-muted;
+        @extend .mb-5;
+        
+    }
+}
+
+  .product-item {
+    @extend .d-flex;
+    @extend .bg-light;
+    @extend .mt-3;
+    @extend .p-3;    
+    @extend .rounded;
+    border: 1px solid $light;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    svg {
+        @extend .me-2;
+        @extend .text-dark;
+        width: 24px; 
+        height: 24px;
+    }
+    h5 { 
+        @extend .text-dark;
+    }
+    p{
+        @extend .small;
+        @extend .text-muted;
+    }
+    &:hover{
+            border-color:$secondary;
+            transform: translateY(-5px); 
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); 
+            
+            h5, svg { 
+                @extend .text-primary;
+            }
+            p{   @extend .text-dark;}
+    }
+  }
+}

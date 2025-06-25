@@ -3,8 +3,11 @@
     "version": "1.0.0",
     "description": "Tema agnóstico para WordPress con Bootstrap 5",
     "scripts": {
-        "dev": "npm-run-all css:dev js:dev",
+        "dev": "npm-run-all --parallel css:dev js:dev",
         "build": "npm-run-all css:build js:build",
+        "watch": "npm-run-all --parallel css:watch js:watch",
+        "css:watch": "sass src/scss/style.scss dist/css/style.min.css --style=compressed --no-source-map --watch",
+        "js:watch": "esbuild src/js/app.js --bundle --outfile=dist/js/app.min.js --minify --watch",
         "css:dev": "sass src/scss/style.scss dist/css/style.min.css --style=compressed --no-source-map",
         "css:build": "sass src/scss/style.scss dist/css/style.min.css --style=compressed",
         "js:dev": "esbuild src/js/app.js --bundle --outfile=dist/js/app.min.js --minify",
@@ -20,6 +23,7 @@
     "dependencies": {
         "aos": "^2.3.4",
         "bootstrap": "^5.3.6",
+        "countup.js": "^2.9.0",
         "lucide": "^0.517.0"
     }
 }

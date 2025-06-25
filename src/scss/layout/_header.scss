@@ -1,10 +1,16 @@
 .navbar {
   position: fixed;
   width: 100%;
-  z-index: 1030;
   background: transparent;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    .logo-color {
+      @extend .d-block;
+    }
+
+    .logo-white {
+      @extend .d-none;
+    }
 
   &.scrolled {
     background-color: #fff!important;
@@ -14,6 +20,18 @@
     .nav-link,
     .navbar-brand {
       color: #000 !important;
+    }
+
+   .navbar-toggler{
+    background-color: $primary
+   }
+    
+  .logo-color {
+      @extend .d-none;
+    }
+
+    .logo-white {
+      @extend .d-block;
     }
   }
 

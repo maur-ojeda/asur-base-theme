@@ -1,0 +1,163 @@
+// Define variables for colors
+$footer-bg-color: #222222;
+$footer-text-color: #cccccc;
+$footer-link-color: #ffffff;
+$footer-link-hover-color: #007bff;
+$footer-overlay-color: rgba(0, 0, 0, 0.7);
+$footer-border-color: #444444;
+$footer-title-color: #ffffff;
+
+.footer {
+   background-color: $footer-bg-color;
+   color: $footer-text-color;
+   padding: 60px 0 30px;
+   position: relative;
+   overflow: hidden; // Ensures background image doesn't overflow
+
+   .footer-bg {
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       z-index: 0; // Behind content
+
+       .footer-bg-img {
+           width: 100%;
+           height: 100%;
+           object-fit: cover; // Cover the entire area
+           filter: brightness(0.4); // Darken the image
+           transform: translateY(0) !important; // Override inline style if present
+       }
+
+       .footer-overlay {
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background-color: $footer-overlay-color;
+       }
+   }
+
+   .container {
+       position: relative; // To be above the background
+       z-index: 1;
+       max-width: 1200px;
+       margin: 0 auto;
+       padding: 0 20px;
+   }
+
+   .footer-content {
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: space-between;
+       gap: 30px;
+       margin-bottom: 40px;
+
+       @media (max-width: 768px) {
+           flex-direction: column;
+           align-items: center;
+           text-align: center;
+       }
+   }
+
+   .footer-section {
+       flex: 1;
+       min-width: 250px; // Minimum width for sections
+       max-width: 30%; // Max width to allow wrapping
+
+       &.main {
+           max-width: 35%; // Main section can be a bit wider
+           @media (max-width: 768px) {
+               max-width: 100%;
+           }
+       }
+
+       @media (max-width: 768px) {
+           max-width: 100%;
+           width: 100%;
+       }
+   }
+
+   .footer-logo {
+       margin-bottom: 20px;
+
+       .footer-logo-img {
+           max-width: 180px; // Adjust logo size as needed
+           height: auto;
+       }
+   }
+
+   .footer-description {
+       font-size: 15px;
+       line-height: 1.6;
+       margin-bottom: 20px;
+   }
+
+   .footer-social {
+       display: flex;
+       gap: 15px;
+       @media (max-width: 768px) {
+           justify-content: center;
+       }
+
+       .social-link {
+           color: $footer-link-color;
+           transition: color 0.3s ease;
+
+           &:hover {
+               color: $footer-link-hover-color;
+           }
+
+           svg {
+               width: 24px;
+               height: 24px;
+           }
+       }
+   }
+
+   .footer-title {
+       font-size: 18px;
+       color: $footer-title-color;
+       margin-bottom: 20px;
+       font-weight: bold;
+   }
+
+   .footer-list {
+       list-style: none;
+       padding: 0;
+       margin: 0;
+
+       li {
+           margin-bottom: 10px;
+           display: flex;
+           align-items: center;
+           gap: 10px;
+
+           a {
+               color: $footer-text-color;
+               text-decoration: none;
+               transition: color 0.3s ease;
+
+               &:hover {
+                   color: $primary;
+               }
+           }
+
+           svg {
+               width: 18px;
+               height: 18px;
+               color: $footer-link-color; 
+                
+           }
+       }
+   }
+
+   .footer-bottom {
+       text-align: center;
+       padding-top: 30px;
+       border-top: 1px solid $footer-border-color;
+       font-size: 14px;
+   }
+}

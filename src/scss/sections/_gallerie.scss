@@ -1,0 +1,19 @@
+#gallery {
+@extend .py-10;
+@extend .bg-success;
+
+.intro-section{
+    h1 {
+        @extend .text-primary;
+        @extend .text-white;
+    }
+    p {
+        @extend .lead;
+        @extend .text-white;
+        @extend .mb-5;
+        
+    }
+}
+
+
+}

@@ -1,0 +1,29 @@
+
+#what-we-do {
+    @extend .py-10;
+    @extend .bg-white;
+    @extend .border-bottom;
+
+  .number-container {
+    @extend .mt-3;
+    @extend .p-3;
+    @extend .border;
+    @extend .border-success;
+    @extend .shadow;
+    @extend .rounded;
+    @extend .h-100;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    h3{
+        @extend .display-5 ;
+        @extend .text-success;
+    }
+    p{
+        @extend .small;
+        @extend .text-dark;
+    }
+  }
+}

@@ -1,61 +1,51 @@
 #services {
-    background-color: #f7f5f5;//$light; // #EDE3D6
+    @extend .py-10;
+    @extend .bg-primary;
     
-    .container.text-center {
-      margin-bottom: 3rem;
-  
-      h3 {
-        color: $dark; // #4D2E1E
-        margin-bottom: 0.5rem;
-      }
-  
-      p.lead {
-        color: darken($body-color, 15%);        
-      }
+    .intro-section{
+        @extend .text-center;
+    h1 {
+        @extend .text-primary;
+        @extend .text-white;
     }
-  
-    .row.mb-5 {
-      margin-bottom: 3rem;
-  
-      .col-md-6 {
-        // Imagen o carrusel con borde redondeado y sombra sutil
-        img,
-        .carousel-inner {
-          border-radius: 0.5rem;
-          box-shadow: 0 4px 15px rgba($dark, 0.15);
-        }
-      }
-  
-      h3 {
-        color: $primary; // #811433
-        margin-bottom: 1rem;
-      }
-  
-      p.text-muted {
-        font-family: $font-secondary;
-        font-size: 1.05rem;
-        margin-bottom: 1.5rem;
-        color: $dark;
-        opacity: 0.8;
-      }
+    p {
+        @extend .lead;
+        @extend .text-white;
+        @extend .mb-5;
+        
+
+    }
+}
+    
   
       ul.list-unstyled {
-        li {
-          font-family: $font-secondary;
-          font-size: 1rem;
-        //  color: $dark;
-          opacity: 0.85;
-          margin-bottom: 0.75rem;
-  
-          span.text-primary {
-            color: white;
-            font-size: 1.2rem;
-            margin-right: 0.5rem;
-            display: flex;
-            align-items: center;
-          }
+
+      .service-item{
+        @extend .d-flex; 
+        @extend .align-items-start ;
+        @extend .mb-3;
+        @extend .p-2;
+        @extend .rounded;
+        svg{
+          @extend .me-2; 
+          @extend .text-white;        
+          width: 24px; 
+          height: 24px;
+        }
+        transition: all 0.3s ease-in-out;
+
+        &:hover{
+          @extend .rounded;
+          @extend .bg-light;
+           @extend .ps-3;
+            svg, span{          
+              @extend .text-primary;                
+            }
+
         }
       }
+
     }
-  }
+}
+
   

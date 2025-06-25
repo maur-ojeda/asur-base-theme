@@ -22,6 +22,8 @@ if ($hero_query->have_posts()) :
         ?>
         
 
+        <pre class="theme-indicator">WIP: hero</pre>
+
         <section 
             id="hero"
             class="hero-section d-flex align-items-center text-white position-relative hero-zoom" 

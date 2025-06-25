@@ -11,19 +11,22 @@ $query = new WP_Query($args);
 
 if ($query->have_posts()) :
     while ($query->have_posts()) : $query->the_post(); 
-
-
-$shortcode = carbon_get_the_post_meta('gallery_shortcode');
+    $title = get_the_title();
+    $desc = get_the_content();
+    $shortcode = carbon_get_the_post_meta('gallery_shortcode');
 ?>
+
+<pre class="theme-indicator">WIP :gallerie</pre>
 
         <section id="gallery" class="py-5">
             <div class="container">
-                <h2 class="text-center mb-4"><?php the_title(); ?></h2>
-                <div class="text-center">
-                    <?php the_content(); ?>
-                </div>
 
-                <div class="text-center">
+            <div class="intro-section" data-aos="fade" data-aos-delay="200">
+                <h1><?= esc_html($title); ?></h1>
+                <p><?= esc_html(strip_tags($desc)); ?></p>
+            </div>
+
+                <div class="text-center" data-aos="fade-up" data-aos-delay="400">
                     <?php echo do_shortcode($shortcode); ?>
                 </div>
             </div>

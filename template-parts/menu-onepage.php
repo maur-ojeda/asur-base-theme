@@ -1,7 +1,24 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-transparent transition-navbar py-3">
   <div class="container" data-aos="fade-up" 
                         data-aos-delay="400">
-    <a class="navbar-brand" href="#">LOGO</a>
+    <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+        <?php
+        // Obtener logos del personalizador
+        $white_logo_url = get_theme_mod( 'white_logo' );
+        $custom_logo_id = get_theme_mod( 'custom_logo' );
+        $color_logo_url = $custom_logo_id ? wp_get_attachment_image_url( $custom_logo_id, 'full' ) : '';
+        ?>
+
+        <?php if ( $white_logo_url ) : ?>
+            <img src="<?php echo esc_url( $white_logo_url ); ?>" alt="<?php bloginfo( 'name' ); ?> Logo" class="logo-white" style="height: 40px; width: auto;">
+        <?php endif; ?>
+        
+        <?php if ( $color_logo_url ) : ?>
+            <img src="<?php echo esc_url( $color_logo_url ); ?>" alt="<?php bloginfo( 'name' ); ?> Logo" class="logo-color" style="height: 40px; width: auto;">
+        <?php else : // Fallback si no hay logos, muestra el nombre del sitio ?>
+            <span class="logo-text"><?php bloginfo( 'name' ); ?></span>
+        <?php endif; ?>
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -20,4 +37,3 @@
         </div>
   </div>
 </nav>
-

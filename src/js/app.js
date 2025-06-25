@@ -1,6 +1,7 @@
 import * as bootstrap from 'bootstrap';
 import { createIcons, icons } from 'lucide';
 import AOS from 'aos';
+import { CountUp } from 'countup.js';
 
 
 
@@ -25,8 +26,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+
   window.addEventListener('scroll', onScroll);
   onScroll();
+
+
+
+   const counters = document.querySelectorAll('.counter');
+
+  const startCount = (el) => {
+    const target = parseInt(el.getAttribute('data-target'), 10);
+    const countUp = new CountUp(el, target, {
+      duration: 2, // segundos
+      separator: '.', // para miles
+    });
+    if (!countUp.error) {
+      countUp.start();
+    } else {
+      console.error(countUp.error);
+    }
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        startCount(entry.target);
+        observer.unobserve(entry.target); 
+      }
+    });
+  }, {
+    threshold: 0.6
+  });
+
+  counters.forEach(counter => {
+    observer.observe(counter);
+  });
+  
 });
 
 console.log('App JS loaded');

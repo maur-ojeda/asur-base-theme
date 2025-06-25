@@ -1,0 +1,16 @@
+#testimonials {
+@extend .py-10;
+
+.intro-section{
+        @extend .text-center;
+    h1 {
+        @extend .text-primary;
+    }
+    p {
+        @extend .lead;
+        @extend .text-muted;
+        @extend .mb-5;
+        
+    }
+}
+}

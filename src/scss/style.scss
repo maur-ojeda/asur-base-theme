@@ -2,8 +2,28 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import "../../node_modules/aos/dist/aos.css";
 @import 'base/typography'; 
+@import 'helpers/spacing'; 
 
 @import 'layout/header'; 
+@import 'layout/footer'; 
 @import 'sections/hero'; 
 @import 'sections/services'; 
+@import 'sections/whatwedo';
+@import 'sections/products';
+@import 'sections/gallerie';
+@import 'sections/clients';
+@import 'sections/testimonial';
+@import 'sections/contact';
+
+
+
+
+.theme-indicator{ 
+    @extend .d-none;
+    background-color:black; 
+    color:white
+    
+
+} 
+
 

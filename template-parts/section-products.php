@@ -1,4 +1,7 @@
-<section id="products" class="py-5">
+
+<pre class="theme-indicator">WIP: products</pre>
+
+<section id="products" class="py-10">
   <div class="container">
     <?php
     $query = new WP_Query(['post_type' => 'product', 'posts_per_page' => -1]);
@@ -12,15 +15,19 @@
     <div class="row mb-5 align-items-center">
       <!-- col-1: contenido -->
       <div class="col-md-6">
-        <h3 class="fw-bold mb-3"><?= esc_html($title); ?></h3>
-        <p class="text-muted"><?= esc_html($desc); ?></p>
+        <div class="intro-section" data-aos="fade" data-aos-delay="200">
+            <h1><?= esc_html($title); ?></h1>
+            <p><?= esc_html($desc); ?></p>
+        </div>
+    
+    
         <ul class="list-unstyled">
           <?php foreach ($features as $f): ?>
-            <li class="mb-3 d-flex align-items-start">
-              <i data-lucide="<?= esc_attr($f['feature_icon']); ?>" class="me-2 text-primary" style="width: 24px; height: 24px;"></i>
+            <li class="product-item" data-aos="fade-right" data-aos-delay="400">
+              <i data-lucide="<?= esc_attr($f['feature_icon']); ?>"></i>
               <div>
-                <strong><?= esc_html($f['feature_title']); ?></strong><br>
-                <small><?= esc_html($f['feature_description']); ?></small>
+                <h5><?= esc_html($f['feature_title']); ?></h5>
+                <p><?= esc_html($f['feature_description']); ?></p>
               </div>
             </li>
           <?php endforeach; ?>
@@ -28,7 +35,7 @@
       </div>
 
       <!-- col-2: galería -->
-      <div class="col-md-6">
+      <div class="col-md-6" data-aos="fade" data-aos-delay="600">
         <?= do_shortcode($gallery_shortcode); ?>
       </div>
     </div>

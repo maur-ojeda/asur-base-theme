@@ -1,0 +1,85 @@
+#contact {
+  @extend .py-10;
+  @extend .bg-primary;
+
+  .intro-section {
+    @extend .text-center;
+    @extend .text-white;
+    h1 {
+      //@extend .text-primary;
+    }
+    p {
+      @extend .lead;
+      //@extend .text-muted;
+      @extend .mb-5;
+    }
+  }
+
+  .contact-item {
+    @extend .text-white;
+    @extend .d-flex;
+    @extend .align-items-start;
+    @extend .mb-3;
+
+    .icon {
+      @extend .p-3;
+      @extend .rounded-circle;
+      @extend .border;
+      @extend .border-white;
+      //transition: all 0.3s ease-in-out;
+    }
+    .content {
+      @extend .ps-3;
+    }
+    a {
+      @extend .text-white;
+      text-decoration: none;
+    }
+  }
+
+  .form {
+    @extend .container;
+    @extend .rounded;
+    @extend .border;
+    @extend .border-white;
+    @extend .py-3;
+    
+    h2{
+      @extend .text-white;
+      @extend .mb-3
+    }
+
+    .wpcf7-form {
+      @extend .row;
+      p {
+        @extend .col;
+        @extend .col-md-6;
+      }
+      label {
+        @extend .text-white;
+        input,
+        textarea,
+        select {
+          @extend .form-control;
+        }
+      }
+
+      p:has(.wpcf7-submit) {
+        @extend .col-12;
+      }
+
+      p:has(textarea) {
+        @extend .col-12;
+        label {
+          @extend .w-100;
+        }
+      }
+      input.wpcf7-submit {
+        @extend .btn;
+        @extend .btn-primary;
+        @extend .btn-lg;
+        @extend .w-100;
+      }
+    }
+  }
+}

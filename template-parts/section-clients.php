@@ -3,20 +3,23 @@
 
     if ($client_query->have_posts()) :
         while ($client_query->have_posts()) : $client_query->the_post();
-$title = get_the_title();
-$content = get_the_content();
-$clients = carbon_get_the_post_meta('clients');           
+            $title = get_the_title();
+            $desc = get_the_content();
+            $clients = carbon_get_the_post_meta('clients');           
     ?>
 
-<section id="clients" class="py-5 bg-light">
+   <pre class="theme-indicator">WIP :clients</pre> 
+
+<section id="clients">
     <div class="container">
-        <div class="row mb-4 text-center">
-            <div class="col">
-                <h2 class="section-title"><?= esc_html($title); ?></h2>
-                <p class="section-subtitle"><?= esc_html($content); ?></p>
-            </div
+
+       <div class="intro-section" data-aos="fade" data-aos-delay="200">
+                <h1><?= esc_html($title); ?></h1>
+                <p><?= esc_html(strip_tags($desc)); ?></p>
         </div>
 
+
+        
         <div class="row justify-content-center g-4">   
             <?php
             if ($clients):
@@ -27,15 +30,16 @@ $clients = carbon_get_the_post_meta('clients');
              ?>   
         
         
-        <div class="col col-md-4 col-lg-3 text-center">
-            <div class="card">
-        <h2><?= esc_html($clientName); ?></h2>
-            <p><?= esc_html($clientText); ?></p>
+            <div class="client-item" data-aos="fade-left" data-aos-delay="200">
+                <div>
                     <?php if ($clientLogo): ?>
-                            <img src="<?php echo esc_url($clientLogo); ?>" class="img-fluid grayscale" alt="Logo cliente">                                            
-                    <?php endif; ?>
-</div>
-        </div>
+                                <img src="<?php echo esc_url($clientLogo); ?>" alt="Logo cliente">                                            
+                        <?php endif; ?>
+                <h4><?= esc_html($clientName); ?></h4>
+                <p><?= esc_html($clientText); ?></p>                        
+                </div>
+            </div>
+
         <?php endforeach; ?>
         <?php endif; ?>
         
