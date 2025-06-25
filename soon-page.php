@@ -17,32 +17,41 @@
 	<link rel="stylesheet" type="text/css" href="https://gsdc.cl/wp-content/themes/twentytwentyfive/css/animate.css">
 	<link rel="stylesheet" href="https://gsdc.cl/wp-content/themes/twentytwentyfive/css/v13/vegas.min.css" />
 	<link rel="stylesheet" href="https://gsdc.cl/wp-content/themes/twentytwentyfive/css/style.css" />
-	<link rel="stylesheet" href="https://gsdc.cl/wp-content/themes/twentytwentyfive/style.css">
+	<link rel="stylesheet" href="https://gsdc.cl/wp-content/themes/twentytwentyfive/estilo.css">
     <link rel="stylesheet" href="https://gsdc.cl/wp-content/themes/twentytwentyfive/css/responsive.css">
 	
 	<!-- Modernizr js - required -->
 	<script src="https://gsdc.cl/wp-content/themes/twentytwentyfive/js/modernizr.custom.js"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        .marshall-logo-new {padding-top:6.5%;}
+        .marshall-content{ text-shadow: 2px 2px 8px #000;}
+        .txt-md{font-size:22px;} 
+        .marshall-container{ background-color:rgba(0,0,0,0.5);}
+        </style>
 </head>
 <body class="mrs-v13 mrs-body-slider">
 	<!-- Page Loader Start -->
 	<div class="marshall-loading-screen">
 	    <div class="marshall-loading-icon">
 	        <div class="marshall-loading-inner">
-	        	<div class="marshall-load" data-name="GSDC"></div>
+	        	<div class="marshall-load" data-name="..."></div>
 	        </div>
 	    </div>
 	</div><!-- End .loading-screen -->
 
 	<div class="marshall-container">
 		<div class="marshall-col-6 marshall-middle-6 marshall-col-content">
-			<div class="marshall-logo fadeIn fast">
+			
+			<div class="marshall-content jquery-center">				
+
+            <div class="marshall-logo-new fadeIn fast">
 				<img src="https://gsdc.cl/wp-content/uploads/2025/06/logo512.png" alt="Marshall Logo">
 			</div>
-			<div class="marshall-content jquery-center">				
+</br>
 				<h2>¡Estamos cocinando algo especial!</h2>
 
-				<p class="fadeIn medium">Grupo Sabores de Chile está preparando su sitio web para ofrecerte una experiencia gastronómica deliciosa.</br>
+				<p class="fadeIn medium txt-md">Grupo Sabores de Chile está preparando su sitio web para ofrecerte una experiencia gastronómica deliciosa.</br>
 					 Pronto podrás descubrir nuestros servicios y proyectos.
 
 		
@@ -50,7 +59,7 @@
 
 				<div class="business-areas fadeIn slow">
 					<h4><strong>Nuestros Servicios Destacados:</strong></h4>
-					<ul class="marshall-social-links">
+					<ul class="marshall-social-links txt-md">
 						<li><i data-lucide="utensils"></i> Catering y Eventos</li>
 						<li><i data-lucide="package"></i> Colaciones (Pack Empresa y Pack Personas)</li>
 						<li><i data-lucide="chef-hat"></i> Administración de Casino</li>
