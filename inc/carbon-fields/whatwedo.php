@@ -17,6 +17,8 @@ Container::make('post_meta', 'Contenido - Lo que hacemos')
                         ->set_help_text('Texto que se mostrará en grande'),
                     Field::make('text', 'whatwedo_text', 'Texto')
                         ->set_required(true),
+                    Field::make('text', 'whatwedo_simbol', 'simbolo')
+                        ->set_required(true),
                 ]),
     ]);
 

@@ -1,6 +1,11 @@
-<?php get_header(); ?>
-<main class="container py-5">
-  <h1><?php the_title(); ?></h1>
-  <?php the_content(); ?>
-</main>
-<?php get_footer(); ?>
+<?php
+/**
+ * The template for displaying 404 pages (not found)
+ * This template redirects to the homepage.
+ */
+
+// Redirigir a la página de inicio
+wp_redirect(home_url(), 301); 
+exit; 
+
+?>

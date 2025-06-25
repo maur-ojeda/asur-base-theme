@@ -5,12 +5,8 @@
   .intro-section {
     @extend .text-center;
     @extend .text-white;
-    h1 {
-      //@extend .text-primary;
-    }
     p {
       @extend .lead;
-      //@extend .text-muted;
       @extend .mb-5;
     }
   }
@@ -25,8 +21,7 @@
       @extend .p-3;
       @extend .rounded-circle;
       @extend .border;
-      @extend .border-white;
-      //transition: all 0.3s ease-in-out;
+      @extend .border-white;      
     }
     .content {
       @extend .ps-3;
@@ -38,6 +33,11 @@
   }
 
   .form {
+  .wpcf7-response-output{
+    border: none!important;
+    @extend .text-white;
+  }
+
     @extend .container;
     @extend .rounded;
     @extend .border;
@@ -51,11 +51,19 @@
 
     .wpcf7-form {
       @extend .row;
+      
       p {
-        @extend .col;
-        @extend .col-md-6;
+        @extend .col-12;
       }
+      @media (min-width: 768px) {
+          p {
+        @extend .col-md-6;
+          }         
+        }
+
+
       label {
+        @extend .w-100;
         @extend .text-white;
         input,
         textarea,
@@ -79,6 +87,9 @@
         @extend .btn-primary;
         @extend .btn-lg;
         @extend .w-100;
+        @extend .border;
+        
+
       }
     }
   }

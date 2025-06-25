@@ -1,11 +1,11 @@
-/* Overlay Hero */
+
 .hero-section {
   position: relative;
   min-height: 100vh;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  color: $light; // Asegúrate de que esta variable esté definida (por ejemplo: #EDE3D6)
+  color: $light;
 
   .overlay {
     z-index: 0;
@@ -15,8 +15,8 @@
     z-index: 3;
   }
 
-  /* Overlay oscuro semitransparente para mejorar contraste */
-  /*&::before {
+  
+  &::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -28,7 +28,7 @@
     position: relative;
     z-index: 10;
     text-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-  }*/
+  }
 
   h1,
   p {
@@ -67,10 +67,11 @@
   }
 }
 
-/* Animación Zoom In para hero */
-.hero-zoom {
+ @media (min-width: 768px) {
+  
+    .hero-zoom {
   animation: heroZoomIn 10s ease-out forwards;
-  background-size: 105%; /* inicia con un poco de zoom */
+  background-size: 105%;
 
   @keyframes heroZoomIn {
     0% {
@@ -81,3 +82,6 @@
     }
   }
 }
+
+
+  }

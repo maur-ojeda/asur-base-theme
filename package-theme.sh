@@ -26,8 +26,8 @@ zip -r "${ZIP_FILE}" . \
   -x "vite.config.js" \
   -x ".vscode/*" \
   -x ".vscode/**" \
-  -x "dist/*" \
-  -x "dist/**" \
+  -x "src/*" \
+  -x "src/**" \
   -x "*.sh" \
   -x "*.log" \
   -x "*.zip"

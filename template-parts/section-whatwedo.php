@@ -33,12 +33,17 @@ if ( $whatwedo_query->have_posts() ) :
         <?php foreach ($numbers as $number): ?>
     <?php
         $num = isset($number['whatwedo_number']) ? $number['whatwedo_number'] : '';
+        $sim = isset($number['whatwedo_simbol']) ? $number['whatwedo_simbol'] : '';
         $text = isset($number['whatwedo_text']) ? $number['whatwedo_text'] : '';
     ?>
     <div class="col-6 col-md-3 mb-4"  data-aos="fade-down" data-aos-delay="400">
         <div class="number-container">
-        <h3 class="counter" data-target="<?php echo esc_attr($number['whatwedo_number']); ?>">0</h3>
+            <div class="d-flex align-items-center justify-content-center">
+                <h3 class="counter" data-target="<?php echo esc_attr($num); ?>">0</h3>
+                <span class="text-muted fs-4"><?php echo esc_html($sim); ?></span>
+            </div>
             <p><?php echo esc_html($text); ?></p>
+
         </div>
     </div>
 <?php endforeach; ?>

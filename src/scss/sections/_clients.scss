@@ -1,61 +1,60 @@
 #clients {
-@extend .py-10;
-@extend .bg-light;
-.intro-section{
+  @extend .py-10;
+  @extend .bg-light;
+  .intro-section {
     @extend .text-center;
     h1 {
-        @extend .text-primary;
-        @extend .text-primary;
+      @extend .text-primary;
+      @extend .text-primary;
     }
     p {
-        @extend .lead;
-        @extend .text-muted;
-        @extend .mb-5;
-        
+      @extend .lead;
+      @extend .text-muted;
+      @extend .mb-5;
     }
-}
-.client-item {
+  }
+  .client-item {
     @extend .col;
     @extend .col-md-4;
-    @extend .col-lg-3; 
-    @extend .text-center;        
+    @extend .col-lg-3;
+    @extend .text-center;
     div {
-        @extend .rounded;
-        @extend .p-3;
-        @extend .bg-white;
-        border: 1px solid #e0e0e0;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        /* Usamos transiciones específicas para mejor rendimiento */
-        transition: border-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        cursor: pointer;
+      @extend .rounded;
+      @extend .p-3;
+      @extend .bg-white;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      transition: border-color 0.3s ease-in-out, transform 0.3s ease-in-out,
+        box-shadow 0.3s ease-in-out;
+      cursor: pointer;
 
-        h4 { 
-            @extend .text-muted;
-            transition: color 0.3s ease-in-out;
-        }
-        p {
-            @extend .small;        
+      h4 {
+        @extend .text-muted;
+        transition: color 0.3s ease-in-out;
+      }
+      p {
+        @extend .small;
+      }
+      img {
+        @extend .img-fluid;
+        width: 50%;
+        height: auto;
+        filter: grayscale(100%);
+        transition: all 0.3s ease-in-out;
+      }
+
+      &:hover {
+        border-color: $secondary;
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        h4 {
+          @extend .text-primary;
         }
         img {
-            @extend .img-fluid;
-            width: 50%;
-            height: auto;
-            filter: grayscale(100%);
-            transition: all 0.3s ease-in-out; 
+          width: 70%;
+          filter: grayscale(0%);
         }
-
-        &:hover {
-            border-color: $secondary;
-            transform: translateY(-5px); 
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); 
-            h4 { 
-                @extend .text-primary;
-            }
-            img {
-                width: 70%;
-                filter: grayscale(0%); 
-            }
-        }
+      }
     }
-}
+  }
 }
