@@ -48,7 +48,7 @@ if ($footer_settings_query->have_posts()) {
         <?php
         // La variable $footer_bg_image ahora es dinámica
         ?>
-        <img src="<?php echo esc_url($footer_bg_image); ?>" alt="Footer background" class="footer-bg-img">
+        <img src="<?php echo ensure_https($footer_bg_image); ?>" alt="Footer background" class="footer-bg-img">
         <div class="footer-overlay"></div>
     </div>
     <div class="container">
@@ -70,7 +70,7 @@ if ($footer_settings_query->have_posts()) {
                     }
                     ?>
                     <?php if ( $footer_logo_url ) : ?>
-                        <img src="<?php echo esc_url($footer_logo_url); ?>" alt="<?php bloginfo('name'); ?>" class="footer-logo-img">
+                        <img src="<?php echo ensure_https($footer_logo_url); ?>" alt="<?php bloginfo('name'); ?>" class="footer-logo-img">
                     <?php else : // Fallback si no hay logos, muestra el nombre del sitio ?>
                         <span class="footer-logo-text"><?php bloginfo( 'name' ); ?></span>
                     <?php endif; ?>

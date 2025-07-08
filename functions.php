@@ -55,6 +55,7 @@ add_filter('use_block_editor_for_post_type', function($use_block_editor, $post_t
 }, 10, 2);
 
 
+
 // Encolar scripts y estilos
 require_once get_template_directory() . '/inc/enqueue.php';
 
@@ -69,3 +70,7 @@ add_action('carbon_fields_register_fields', function () {
         require_once $carbon_fields;
     }
 });
+
+function ensure_https($url) {
+    return esc_url(set_url_scheme($url, 'https'));
+}

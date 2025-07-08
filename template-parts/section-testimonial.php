@@ -5,8 +5,11 @@
             $title = get_the_title();
             $desc = get_the_content();
             $testimonial_shortcode = carbon_get_the_post_meta('testimonial_shortcode');
-            
-    ?>
+               $is_visible = carbon_get_the_post_meta('is_visible');                      
+        ?>
+
+<?php if ($is_visible) : ?>
+
 <pre class="theme-indicator">WIP: testimonial</pre>
 
 <section id="testimonials" class="py-5">
@@ -25,4 +28,4 @@
   </div>
 </section>
 
-    <?php endwhile; wp_reset_postdata(); endif; ?>
+    <?php endif; endwhile; wp_reset_postdata(); endif; ?>

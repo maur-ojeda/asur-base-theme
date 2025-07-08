@@ -15,7 +15,11 @@ if ( $whatwedo_query->have_posts() ) :
     $title = get_the_title();
     $description = carbon_get_the_post_meta('whatwedo_description');
     $numbers = carbon_get_the_post_meta('whatwedo_numbers');    
-?>
+    $is_visible = carbon_get_the_post_meta('is_visible');                      
+        ?>
+
+<?php if ($is_visible) : ?>
+
 
 
 <pre class="theme-indicator">WIP: what-we-do</pre>
@@ -48,7 +52,7 @@ if ( $whatwedo_query->have_posts() ) :
     </div>
 <?php endforeach; ?>
         </div>
-        <?php endwhile; wp_reset_postdata(); ?>
+        <?php endif; endwhile; wp_reset_postdata(); ?>
     </div>
 </section>
 

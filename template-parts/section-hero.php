@@ -19,7 +19,11 @@ if ($hero_query->have_posts()) :
             $button2_text     = carbon_get_the_post_meta('hero_button_2_text');
             $button2_link     = carbon_get_the_post_meta('hero_button_2_link');
             $background_image = carbon_get_the_post_meta('hero_background_image');
+            $is_visible = carbon_get_the_post_meta('is_visible');                      
         ?>
+
+<?php if ($is_visible) : ?>
+
         
 
         <pre class="theme-indicator">WIP: hero</pre>
@@ -27,7 +31,7 @@ if ($hero_query->have_posts()) :
         <section 
             id="hero"
             class="hero-section d-flex align-items-center text-white position-relative hero-zoom" 
-            style="background: url('<?php echo esc_url($background_image); ?>') no-repeat center center / cover; min-height: 100vh;">
+            style="background: url('<?php echo ensure_https($background_image); ?>') no-repeat center center / cover; min-height: 100vh;">
             <div class="overlay position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-75"></div>
             
             <div class="container text-left position-relative z-1 mt-5 pt-5">
@@ -70,6 +74,7 @@ if ($hero_query->have_posts()) :
         </section>
 
         <?php
+        endif;
     endwhile;
     wp_reset_postdata();
 endif;

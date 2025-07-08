@@ -5,6 +5,11 @@ use Carbon_Fields\Field;
 Container::make('post_meta', 'Configuración del Footer')
     ->where('post_type', '=', 'footer_settings')
     ->add_fields([
+
+           Field::make('checkbox', 'is_visible', 'Mostrar esta sección')
+            ->set_option_value('yes')
+            ->set_width(50)
+            ->set_help_text('Marca esta casilla para que la sección sea visible en la página.'),
         Field::make('image', 'footer_background_image', 'Imagen de Fondo del Footer')
             ->set_help_text('Sube la imagen que se mostrará en el fondo del pie de página.')
             ->set_value_type('url'),

@@ -10,11 +10,11 @@
         ?>
 
         <?php if ( $white_logo_url ) : ?>
-            <img src="<?php echo esc_url( $white_logo_url ); ?>" alt="<?php bloginfo( 'name' ); ?> Logo" class="logo-white" style="height: 40px; width: auto;">
+            <img src="<?php echo ensure_https( $white_logo_url ); ?>" alt="<?php bloginfo( 'name' ); ?> Logo" class="logo-white" style="height: 40px; width: auto;">
         <?php endif; ?>
         
         <?php if ( $color_logo_url ) : ?>
-            <img src="<?php echo esc_url( $color_logo_url ); ?>" alt="<?php bloginfo( 'name' ); ?> Logo" class="logo-color" style="height: 40px; width: auto;">
+            <img src="<?php echo ensure_https( $color_logo_url ); ?>" alt="<?php bloginfo( 'name' ); ?> Logo" class="logo-color" style="height: 40px; width: auto;">
         <?php else : // Fallback si no hay logos, muestra el nombre del sitio ?>
             <span class="logo-text"><?php bloginfo( 'name' ); ?></span>
         <?php endif; ?>

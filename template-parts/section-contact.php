@@ -13,9 +13,11 @@ if ($contact_query->have_posts()) :
         $title = get_the_title();
         $desc = get_the_content();
         $items = carbon_get_the_post_meta('contact_items');           
-        $shortcode = carbon_get_the_post_meta('contact_shortcode');           
+        $shortcode = carbon_get_the_post_meta('contact_shortcode');
+        $is_visible = carbon_get_the_post_meta('is_visible');                      
         ?>
 
+<?php if ($is_visible) : ?>
 
     <section id="contact" style="background-image:url('<?php echo esc_url(get_template_directory_uri() . '/dist/images/bg-02.jpg'); ?>'); background-size:contain; background-position: top center;">
         <div class="container">            
@@ -67,6 +69,8 @@ if ($contact_query->have_posts()) :
             </div>
         </section>
 
+    <?php endif; ?>
+    
     <?php
     endwhile;
     wp_reset_postdata();

@@ -14,7 +14,10 @@ if ($query->have_posts()) :
     $title = get_the_title();
     $desc = get_the_content();
     $shortcode = carbon_get_the_post_meta('gallery_shortcode');
-?>
+    $is_visible = carbon_get_the_post_meta('is_visible');                      
+        ?>
+
+<?php if ($is_visible) : ?>
 
 <pre class="theme-indicator">WIP :gallerie</pre>
 
@@ -31,7 +34,9 @@ if ($query->have_posts()) :
                 </div>
             </div>
         </section>
-    <?php endwhile;
+    <?php 
+endif;    
+endwhile;
     wp_reset_postdata();
 endif;
 ?>

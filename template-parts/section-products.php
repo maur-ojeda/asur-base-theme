@@ -1,8 +1,3 @@
-
-<pre class="theme-indicator">WIP: products</pre>
-
-<section id="products" class="py-10">
-  <div class="container">
     <?php
     $query = new WP_Query(['post_type' => 'product', 'posts_per_page' => -1]);
     if ($query->have_posts()) :
@@ -11,7 +6,18 @@
             $desc = carbon_get_the_post_meta('product_description');
             $gallery_shortcode = carbon_get_the_post_meta('product_gallery_shortcode');
             $features = carbon_get_the_post_meta('product_features');
-    ?>
+                $is_visible = carbon_get_the_post_meta('is_visible');                      
+        ?>
+
+
+<?php if ($is_visible) : ?>
+<pre class="theme-indicator">WIP: products</pre>
+
+<section id="products" class="py-10">
+  <div class="container">
+
+
+
     <div class="row mb-5 align-items-center">
       <!-- col-1: contenido -->
       <div class="col-md-6">
@@ -24,7 +30,7 @@
         <ul class="list-unstyled">
           <?php foreach ($features as $f): ?>
             <li class="product-item" data-aos="fade-right" data-aos-delay="400">
-              <i data-lucide="<?= esc_attr($f['feature_icon']); ?>"></i>
+              <i data-lucide="<?= esc_attr($f['feature_icon']); ?>" class="d-none d-md-block" ></i>
               <div>
                 <h5><?= esc_html($f['feature_title']); ?></h5>
                 <p><?= esc_html($f['feature_description']); ?></p>
@@ -39,6 +45,9 @@
         <?= do_shortcode($gallery_shortcode); ?>
       </div>
     </div>
-    <?php endwhile; wp_reset_postdata(); endif; ?>
+  
   </div>
 </section>
+  <?php 
+    endif;
+    endwhile; wp_reset_postdata(); endif; ?>

@@ -1,51 +1,53 @@
 #services {
-    @extend .py-10;
-    @extend .bg-primary;
-    
-    .intro-section{
-        @extend .text-center;
+  @extend .py-10;
+  @extend .bg-white;
+  @extend .border-bottom;
+
+  h1 {
+    @extend .text-primary;
+    @extend .fw-bold;
+  }
+
+  .intro-section-services {
+    @extend .text-center;
     h1 {
-        @extend .text-primary;
-        @extend .text-white;
+      @extend .text-primary;
+      @extend .display-3;
     }
     p {
-        @extend .lead;
-        @extend .text-white;
-        @extend .mb-5;
-        
-
+      @extend .mb-10;
+      @extend .fs-4;
+      @extend .text-muted;
     }
-}
-    
-  
-      ul.list-unstyled {
+  }
 
-      .service-item{
-        @extend .d-flex; 
-        @extend .align-items-start ;
-        @extend .mb-3;
-        @extend .p-2;
-        @extend .rounded;
-        svg{
-          @extend .me-2; 
-          @extend .text-white;        
-          width: 24px; 
-          height: 24px;
-        }
-        transition: all 0.3s ease-in-out;
-
-        &:hover{
-          @extend .rounded;
-          @extend .bg-light;
-           @extend .ps-3;
-            svg, span{          
-              @extend .text-primary;                
-            }
-
-        }
+  .service-item {
+    @extend .d-flex;
+    @extend .mt-3;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    svg {
+      @extend .me-2;
+      @extend .text-dark;
+      width: 24px;
+      height: 24px;
+    }
+    h5 {
+      @extend .text-dark;
+    }
+    p {
+      @extend .small;
+      @extend .text-muted;
+    }
+    &:hover {
+      @extend .ps-3;
+      h5,
+      svg {
+        @extend .text-primary;
       }
-
+      p {
+        @extend .text-dark;
+      }
     }
+  }
 }
-
-  
