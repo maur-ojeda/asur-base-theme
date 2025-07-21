@@ -24,7 +24,26 @@ Container::make('post_meta', 'Configuración del Footer')
                     ->set_attribute('type', 'url')
                     ->set_width(50),
             ]),
-        
+
+        Field::make('separator', 'crb_links_separator', 'Secciones de Enlaces del Footer'),
+
+        Field::make('complex', 'footer_link_sections', 'Columnas de Enlaces')
+            ->set_layout('tabbed-horizontal')
+            ->set_help_text('Añade y organiza las columnas de enlaces que aparecerán en el footer. Cada entrada es una nueva columna.')
+            ->add_fields('link_section', [
+                Field::make('text', 'section_title', 'Título de la Columna')
+                    ->set_width(50),
+                Field::make('text', 'section_title_link', 'Enlace del Título (Opcional)')
+                    ->set_help_text('Puede ser una URL completa (https://...), una ruta relativa (/contacto) o un ancla (#servicios).')
+                    ->set_width(50),
+                Field::make('complex', 'section_links', 'Enlaces de la Columna')
+                    ->set_layout('tabbed-vertical')
+                    ->add_fields('link_item', [
+                        Field::make('text', 'link_text', 'Texto del Enlace')->set_width(50)->set_required(true),
+                        Field::make('text', 'link_url', 'URL del Enlace')->set_width(50)->set_required(true),
+                    ]),
+            ]),
+
         Field::make('text', 'footer_phone', 'Teléfono de Contacto')->set_attribute('type', 'tel'),
         Field::make('text', 'footer_email', 'Email de Contacto')->set_attribute('type', 'email'),
         Field::make('text', 'footer_address', 'Dirección de Contacto'),

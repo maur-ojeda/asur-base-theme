@@ -26,6 +26,7 @@ $social_links    = [];
 $contact_phone   = '+56 9 1234 5678';
 $contact_email   = 'contacto@saboresdeChile.cl';
 $contact_address = 'Santiago, Chile';
+$link_sections   = [];
 
 if ($footer_settings_query->have_posts()) {
     while ($footer_settings_query->have_posts()) {
@@ -37,6 +38,7 @@ if ($footer_settings_query->have_posts()) {
         $contact_phone   = carbon_get_the_post_meta('footer_phone') ?: $contact_phone;
         $contact_email   = carbon_get_the_post_meta('footer_email') ?: $contact_email;
         $contact_address = carbon_get_the_post_meta('footer_address') ?: $contact_address;
+        $link_sections   = carbon_get_the_post_meta('footer_link_sections') ?: $link_sections;
     }
     wp_reset_postdata();
 }
@@ -89,15 +91,33 @@ if ($footer_settings_query->have_posts()) {
                 </div>
             </div>
 
-            <div class="footer-section">
-                <h3 class="footer-title">Servicios</h3>
-                <ul class="footer-list">
-                    <li><a href="#servicios">Catering de Eventos</a></li>
-                    <li><a href="#servicios">Administración de Casino</a></li>
-                    <li><a href="#servicios">Colaciones Corporativas</a></li>
-                    <li><a href="#galeria">Galería de Eventos</a></li>
-                </ul>                
-            </div>
+
+
+            <?php if ( ! empty( $link_sections ) ) : ?>
+
+
+                <?php foreach ( $link_sections as $section ) : ?>
+                    <div class="footer-section">
+                        <?php if ( ! empty( $section['section_title'] ) ) : ?>
+                            <h3 class="footer-title">
+                                <?php if ( ! empty( $section['section_title_link'] ) ) : ?>
+                                    <a href="<?php echo esc_url( $section['section_title_link'] ); ?>"><?php echo esc_html( $section['section_title'] ); ?></a>
+                                <?php else : ?>
+                                    <?php echo esc_html( $section['section_title'] ); ?>
+                                <?php endif; ?>
+                            </h3>
+                        <?php endif; ?>
+
+                        <?php if ( ! empty( $section['section_links'] ) ) : ?>
+                            <ul class="footer-list">
+                                <?php foreach ( $section['section_links'] as $link ) : ?>
+                                    <li><a href="<?php echo esc_url( $link['link_url'] ); ?>"><?php echo esc_html( $link['link_text'] ); ?></a></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
 
             <div class="footer-section">
                 <h3 class="footer-title">Contacto</h3>
