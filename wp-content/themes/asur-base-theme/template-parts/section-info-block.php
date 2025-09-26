@@ -26,11 +26,15 @@ if ($block) :
                 case 'type-1': // texto izquierda, imagen derecha
                 case 'type-3': // texto derecha, imagen izquierda, adorno arriba
                 case 'type-4': // texto derecha, imagen izquierda, sin adorno
+                case 'type-9': // texto derecha, imagen izquierda, sin adorno
                     $order = 'order-last';
                     break;
                 // type-6 (solo texto) and default have no specific order.
             }
             ?>
+
+
+
 
 <section class="info-block">
     <div class="container mt-5">        
@@ -47,22 +51,22 @@ if ($block) :
 
             <?php // --- Image Column (if not type-6) --- ?>
             <?php if ($type !== 'type-6') : ?>
-                <div class="col-12 offset-md-1 col-md-4 <?= esc_attr($order); ?>" data-aos="fade-right">
+                <div class="col-12 <?= ($type !== 'type-2' && $type !== 'type-8' && $type !== 'type-9') ? 'offset-md-1' : '' ?> <?= ($type === 'type-8' || $type === 'type-9') ? 'col-md-6' : 'col-md-4' ?> <?= esc_attr($order); ?>" data-aos="fade-right">
                     <div class="img-krom-wrapper <?= esc_attr($type); ?>">
-                        <img class="img-krom <?= esc_attr($order); ?>" src="<?php echo esc_url(ensure_https($image)); ?>" alt="">
+                        <img class="img-krom <?= esc_attr($order); ?>  <?= ($type === 'type-8' || $type === 'type-9') ? 'w-100' : '' ?>" src="<?php echo esc_url(ensure_https($image)); ?>" alt="">
                     </div>
                 </div>
             <?php endif; ?>
 
             <?php // --- Content Column --- ?>
-            <div class="col">
+            <div class="col <?= ($type === 'type-2') ? 'offset-md-1' : 'ps-md-10' ?>">
                 <?php if ($overTitle) : ?>
                     <h6 class="over-title" data-aos="fade-up" data-aos-delay="200"><?= esc_html($overTitle); ?></h6>
                 <?php endif; ?>
 
                 <h2 class="title" data-aos="fade-up" data-aos-delay="400"><?= esc_html($title); ?></h2>
 
-                <div class="wysiwyg" data-aos="fade-up" data-aos-delay="600">
+                <div class="wysiwyg" data-aos="fade-up" data-aos-delay="600" class="me-lg-4">
                     <?php echo apply_filters('the_content', $content); ?>
                 </div>
 

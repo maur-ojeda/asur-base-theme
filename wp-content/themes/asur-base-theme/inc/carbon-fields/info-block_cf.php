@@ -32,6 +32,8 @@ Container::make('post_meta', 'Campos de Info Block')
                 'type-4' => 'Texto derecha, imagen izquierda, sin adorno',
                 'type-5' => 'Texto derecha, imagen izquierda, adorno arriba',
                 'type-6' => 'Solo texto, sin imagen',
+                'type-8' => 'Texto derecha, imagen izquierda, sin adorno',
+                'type-9' => 'Texto izquierda, imagen derecha, sin adorno',
             ])
             ->set_width(50),
 

@@ -115,10 +115,7 @@ p {
 
   &.type-8 {
     &::after {
-      top: -1.25rem;
-      left: -3.5rem;
-      width: 15%;
-      height: 2.5rem;
+      display: none;
     }
   }
 }
@@ -126,4 +123,25 @@ p {
 .container-krom {
   @extend .container-fluid;
   padding: 0 3.5rem;
+}
+
+#projectsCarousel {
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 4%;
+  }
+}
+
+.carousel-control-prev {
+  left: -5%;
+}
+
+.carousel-control-next {
+  right: -5%;
+}
+
+.carousel-control-next-icon {
+}
+
+.carousel-control-prev-icon {
 }
