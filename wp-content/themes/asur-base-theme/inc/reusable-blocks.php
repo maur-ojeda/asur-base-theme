@@ -55,9 +55,8 @@ function get_reusable_cpt_block_simple($block_ids, $cpt_name, $block_index = 0) 
 
     $block_query = new WP_Query([
         'post_type'      => $cpt_name,
-        'p'              => $block_id,
         'post_status'    => 'publish',
-        'posts_per_page' => 1,
+        'posts_per_page' => -1,
     ]);
 
     if (!$block_query->have_posts()) {

@@ -44,10 +44,6 @@ Container::make('post_meta', 'Contenido de innovación')
         ->set_width(50)
             ->set_help_text('imagen inferior'),
 
-        /* Field::make( 'image', 'crb_info_a_imagen_3', 'Imagen 3' )
-        ->set_width(50)
-            ->set_help_text('Marca esta casilla para que la sección sea visible en la página.'),
-        */
         
         Field::make( 'rich_text', 'crb_info_a_texto_enriquecido', 'Texto enriquecido' ),
 
@@ -84,6 +80,21 @@ Container::make('post_meta', 'Contenido de innovación')
             ])
             ->set_layout( 'tabbed-vertical' ),     
 
+
+        Field::make('separator', 'crb_info_file_separator', 'Ficha técnica y material de apoyo' ),
+
+        Field::make('complex', 'crb_info_file', 'Ficha técnica y material de apoyo')
+            ->set_help_text('Agrega fichas técnicas, brochures y otros materiales.')
+            ->add_fields([
+                Field::make('text', 'crb_info_file_name', 'Título del Material'),
+                Field::make( 'image', 'crb_info_file_image', 'Imagen ' ),
+                Field::make('file', 'crb_info_file_esp', 'Archivo español')
+                    ->set_value_type('url'),
+                Field::make('file', 'crb_info_file_eng', 'Archivo ingles')
+                    ->set_value_type('url'),    
+                
+            ]),
+            
 
 
     ]);

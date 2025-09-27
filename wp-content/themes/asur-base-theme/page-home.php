@@ -56,7 +56,7 @@
             <?php get_template_part('template-parts/section', 'info-block', ['index' => 4]); ?>        
         </div>
         <div class="container-krom">
-            <?php get_template_part('template-parts/section', 'innovation-projects-carousel'); ?>
+            <?php get_template_part('template-parts/section', 'innovation-projects-carousel',  ['index' => 0]); ?>
         </div>
         <?php get_template_part('template-parts/section', 'technological-solutions-carousel'); ?>
         <?php get_template_part('template-parts/section', 'partners'); ?>
