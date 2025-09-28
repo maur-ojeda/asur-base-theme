@@ -1,10 +1,5 @@
 // contact-form.js
 jQuery(document).ready(function($) {
-    if (typeof $.validator === 'undefined') {
-        console.error('jQuery Validation no está cargado');
-        return;
-    }
-    
     console.log('Document ready - jQuery Validation loaded');
     
     // Configurar jQuery Validation para todos los formularios de contacto
@@ -12,6 +7,11 @@ jQuery(document).ready(function($) {
         const $form = $(this);
         
         $form.validate({
+            // Deshabilitar validación HTML5 nativa
+            onfocusout: false,
+            onkeyup: false,
+            onclick: false,
+            
             // Reglas de validación
             rules: getValidationRules($form),
             
@@ -86,8 +86,6 @@ jQuery(document).ready(function($) {
             const name = $field.attr('name');
             const type = $field.attr('type');
             const isRequired = $field.attr('required') !== undefined;
-            const minLength = $field.attr('minlength');
-            const maxLength = $field.attr('maxlength');
             
             if (name) {
                 rules[name] = {};
@@ -104,12 +102,12 @@ jQuery(document).ready(function($) {
                     rules[name].number = true;
                 }
                 
-                if (minLength) {
-                    rules[name].minlength = parseInt(minLength);
-                }
-                
-                if (maxLength) {
-                    rules[name].maxlength = parseInt(maxLength);
+                // Validar longitud mínima para campos de texto
+                if (type === 'text' || type === 'textarea') {
+                    const minLength = $field.attr('minlength');
+                    if (minLength) {
+                        rules[name].minlength = parseInt(minLength);
+                    }
                 }
             }
         });
@@ -127,8 +125,6 @@ jQuery(document).ready(function($) {
             const type = $field.attr('type');
             const isRequired = $field.attr('required') !== undefined;
             const label = $field.attr('placeholder') || name;
-            const minLength = $field.attr('minlength');
-            const maxLength = $field.attr('maxlength');
             
             if (name) {
                 messages[name] = {};
@@ -145,12 +141,9 @@ jQuery(document).ready(function($) {
                     messages[name].number = `Por favor ingrese un número válido`;
                 }
                 
+                const minLength = $field.attr('minlength');
                 if (minLength) {
                     messages[name].minlength = `El campo ${label} debe tener al menos ${minLength} caracteres`;
-                }
-                
-                if (maxLength) {
-                    messages[name].maxlength = `El campo ${label} no debe exceder ${maxLength} caracteres`;
                 }
             }
         });
