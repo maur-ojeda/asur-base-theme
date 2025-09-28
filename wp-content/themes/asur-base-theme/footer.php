@@ -43,10 +43,6 @@ if ($footer_settings_query->have_posts()) {
  
 </main>
 
-
-
-
-
 <div class="footer-bg">
 <div class="footer-image-clipped" style="background-image: url('<?php echo ensure_https($footer_bg_image); ?>');">
 <div class="bg-dark-blue- py-5 " style="z-index: 4;">

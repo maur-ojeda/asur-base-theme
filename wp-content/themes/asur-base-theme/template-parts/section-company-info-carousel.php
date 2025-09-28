@@ -1,70 +1,81 @@
-<div class="">
-<div class="container my-5">
-  <div class="text-start mb-4">
-    <p class="text-uppercase fw-bold">KROM INDUSTRY</p>
-    <h1 class="display-4 fw-bold">NUESTROS FINES</h1>
-  </div>
-</div> 
- 
-<div class="container-fluid bg-dark">
-    <div class="offset-md-3 col-md-6">
+<?php
 
-<div id="textCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="d-flex align-items-center justify-content-center p-5">
-          <div class="text-white bg-secondary p-5" style="--bs-bg-opacity: .75;">
-            <h2 class="text-uppercase fw-bold mb-3">MISION</h2>
-            <p>
-              Contribuir al éxito de nuestros clientes es nuestra motivación diaria, basada en la entrega de servicios y productos de alta calidad, con un sólido respaldo técnico.
-            </p>
-            <p>
-              En Krom Industry estamos comprometidos en ser el socio estratégico que la industria necesita, ofreciendo soluciones integrales en ingeniería, asesoría técnica y suministro de equipos. Nuestra misión es brindar un servicio especializado y de calidad, respaldado por una sólida red internacional.
-            </p>
-            <a class="btn btn-primary mt-3 float-end" href="#" role="button">
-              <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
+if (have_posts()) {
+    while (have_posts()) {
+        the_post(); // Inicia el loop de WordPress para esta página
+
+        // --- Recuperar los valores de los campos personalizados ---
+        $bg_imagen_url = carbon_get_the_post_meta('bg_company_imagen'); // URL de la imagen de fondo
+        $items = carbon_get_the_post_meta('crb_company_item'); // Array de ítems del carrusel
+
+        // --- Generar el HTML ---
+        ?>
+        <div class="container my-5">
+            <div class="text-start mb-4">
+                <p class="over-title">KROM INDUSTRY</p>
+                <h1 class="title">NUESTROS FINES</h1>
+            </div>
         </div>
-      </div>
-      <div class="carousel-item">
-        <div class="d-flex align-items-center justify-content-center p-5">
-          <div class="text-white bg-secondary p-5" style="--bs-bg-opacity: .75;">
-            <h2 class="text-uppercase fw-bold mb-3">VISION</h2>
-            <p>
-              Ser líderes en el mercado, reconocidos por nuestra innovación y por la excelencia en la atención al cliente.
-            </p>
-            <a class="btn btn-primary mt-3 float-end" href="#" role="button">
-              <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
+
+        <!-- Contenedor del carrusel con imagen de fondo -->
+        <div class="container-fluid bg-dark py-20" style="<?php if ($bg_imagen_url): ?>background-image: url('<?php echo esc_url($bg_imagen_url); ?>'); background-size: cover; background-position: center;<?php endif; ?>">
+            <div class="offset-md-3 col-md-6">
+                <div id="textCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+
+                        <?php if ($items && is_array($items) && !empty($items)): ?>
+                            <?php
+                            $contador = 0;
+                            foreach ($items as $item):
+                                $contador++;
+                                $is_active = ($contador === 1) ? ' active' : ''; // La primera diapositiva es activa
+                            ?>
+                                <div class="carousel-item<?php echo $is_active; ?>">
+                                    <div class="d-flex align-items-center justify-content-center p-5">
+                                        <div class="text-white bg-secondary-krom p-12 rounded">
+                                            <h2 class="text-primary fs-1 text-center mb-3"><?php echo esc_html($item['title']); ?></h2>
+                                            <div class="item-text wysiwyg">
+                                                <?php echo ($item['text']); ?>
+                                            </div>
+
+                                                <a class="btn btn-krom mt-3 float-end px-5"  role="button" data-bs-target="#textCarousel" data-bs-slide="next">
+                                                 
+                                                    <i data-lucide="arrow-right"></i>
+                                                </a>
+
+                                            <?php if (!empty($item['button_text']) && !empty($item['button_url'])): ?>
+                                                <a class="btn btn-primary mt-3 float-end" href="<?php echo esc_url($item['button_url']); ?>" role="button">
+                                                    <?php echo esc_html($item['button_text']); ?>
+                                                    <i class="bi bi-arrow-right"></i>
+                                                </a>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <!-- Mensaje o diapositiva por defecto si no hay ítems -->
+                            <div class="carousel-item active">
+                                <div class="d-flex align-items-center justify-content-center p-5">
+                                    <div class="text-white bg-secondary p-5" style="--bs-bg-opacity: .75;">
+                                        <h2 class="text-uppercase fw-bold mb-3">No hay ítems</h2>
+                                        <p>Agrega ítems en el panel de edición de esta página.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+
+                    </div>
+                   
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="carousel-item">
-        <div class="d-flex align-items-center justify-content-center p-5">
-          <div class="text-white bg-secondary p-5" style="--bs-bg-opacity: .75;">
-            <h2 class="text-uppercase fw-bold mb-3">VALORES</h2>
-            <p>
-              Integridad, compromiso y calidad.
-            </p>
-            <a class="btn btn-primary mt-3 float-end" href="#" role="button">
-              <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-next" type="button" data-bs-target="#textCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Siguiente</span>
-    </button>
-  </div>
+
+        <?php
+        // Opcional: Mostrar el contenido estándar de la página
+        // the_content();
+    }
+}
 
 
-    </div>
-</div>
-
-</div>
-
-
-</div>
+?>
