@@ -12,11 +12,10 @@ if ($contact_query->have_posts()) :
     while ($contact_query->have_posts()) : $contact_query->the_post();
         $title = get_the_title();
         $overtitle = carbon_get_the_post_meta('overtitle');                      
-        $content = get_the_content();
-        $items = carbon_get_the_post_meta('contact_items');           
-        $socials = carbon_get_the_post_meta('contact_items_social');           
+        $form_title = carbon_get_the_post_meta('form_title');           
+        $bg_imagen = carbon_get_the_post_meta('bg_imagen');           
         $shortcode = carbon_get_the_post_meta('contact_shortcode');
-        $is_visible = carbon_get_the_post_meta('is_visible');                      
+       
         ?>
 
 <?php if ($is_visible) : ?>

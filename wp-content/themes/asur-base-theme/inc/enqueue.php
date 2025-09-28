@@ -24,16 +24,22 @@ function asur_enqueue_assets() {
         true
     );
 
-    // JS formulario contacto (tu archivo contact-form.js)
+    wp_enqueue_script(
+        'jquery-validation',
+        'https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js',
+        ['jquery'],
+        '1.19.5',
+        true
+    );
+
     wp_enqueue_script(
         'custom-contact-form',
-        get_template_directory_uri() . '/dist/js/contact-form.js', // asegúrate que la ruta sea correcta
-        ['jquery'],
+        get_template_directory_uri() . '/dist/js/contact-form.js', 
+        ['jquery', 'jquery-validation'], // Añadido jquery-validation como dependencia
         filemtime(get_template_directory() . '/dist/js/contact-form.js'),
         true
     );
 
-    // Localizar para pasar ajax_url
     wp_localize_script('custom-contact-form', 'my_ajax_object', [
         'ajax_url' => admin_url('admin-ajax.php'),
     ]);
