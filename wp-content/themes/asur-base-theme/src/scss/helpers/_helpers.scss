@@ -1,26 +1,153 @@
+// Variables de utilidad (ajusta según tus necesidades)
+$transition-base: all 0.3s ease-in-out;
+
+// ———————————————————————————————
+// Transiciones globales
+// ———————————————————————————————
 .transition {
-  transition: all 0.3s ease-in-out;
+  transition: $transition-base;
 }
 
+// ———————————————————————————————
+// Tamaños de fuente personalizados
+// ———————————————————————————————
 .fs-6-5 {
-  font-size: 1.125rem; /* 18px */
+  font-size: 1.125rem !important; // 18px
 }
 
+// ———————————————————————————————
+// Botones con hover radial (mejorado)
+// ———————————————————————————————
 .hvr-radial-out {
-  background: $primary;
+  background-color: $primary;
   border: none;
-  &:before {
-    background: darken($primary, 20%);
-    border: none;
+  position: relative;
+  overflow: hidden;
+  transition: $transition-base;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: darken($primary, 20%);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: $transition-base;
+    z-index: 1;
   }
+
   &:focus-visible {
-    background: darken($primary, 25%);
+    outline: 2px solid darken($primary, 25%);
+    outline-offset: 2px;
+    background-color: darken($primary, 25%);
   }
+
   &:hover {
-    background: darken($primary, 30%);
+    background-color: darken($primary, 30%);
+
+    &::before {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
+
+  // Asegurar que el texto quede por encima del pseudo-elemento
+  > * {
+    position: relative;
+    z-index: 2;
   }
 }
 
+// ———————————————————————————————
+// Clase de offset personalizada (Bootstrap 5 compatible)
+// ———————————————————————————————
 .offset-lg-05 {
-  margin-left: 3.333333%;
+  margin-left: 3.333333% !important; // 1/30 ≈ 3.33% (medio column gap)
+}
+
+// ———————————————————————————————
+// Subrayado desde el centro (mejorado)
+// ———————————————————————————————
+.hvr-underline-from-center {
+  display: inline-block;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent; // Evita "salto" en algunos navegadores
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 51%;
+    right: 51%;
+    bottom: 0;
+    background: $primary;
+    height: 1px;
+    transition: left 0.3s ease-out, right 0.3s ease-out;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    &::before {
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+// ———————————————————————————————
+// Estilos para íconos de Lucide en menú (¡importante!)
+// ———————————————————————————————
+// Asegura que los íconos se alineen bien y tengan tamaño consistente
+.nav-link,
+.dropdown-item {
+  i[data-lucide] {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em; // Alineación óptica con texto
+    margin-left: 0.4em;
+    display: inline-block;
+    flex-shrink: 0;
+
+    // Chevron-right en submenús: a la izquierda
+    &[data-lucide="chevron-right"] {
+      margin-left: 0;
+      margin-right: 0.6em;
+    }
+  }
+}
+
+// Opcional: tamaño pequeño para íconos en menú
+.fs-xs {
+  width: 0.875em !important;
+  height: 0.875em !important;
+}
+
+// ———————————————————————————————
+// Dropdown con pico (opcional, si lo usas)
+// ———————————————————————————————
+.navbar .dropdown-menu {
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -0.5rem;
+    left: 1.5rem;
+    width: 0;
+    height: 0;
+    border-left: 0.5rem solid transparent;
+    border-right: 0.5rem solid transparent;
+    border-bottom: 0.5rem solid $white; // Ajusta si usas fondo oscuro
+    z-index: 1001;
+  }
 }

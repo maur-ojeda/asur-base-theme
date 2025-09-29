@@ -14,9 +14,6 @@ $wsp = carbon_get_theme_option('projects_section_is_visible');
 
   <div class="container" data-aos="fade-up" data-aos-delay="400">
 
-
-  
-
     <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
         <?php
         // Obtener logos del personalizador
@@ -36,7 +33,7 @@ $wsp = carbon_get_theme_option('projects_section_is_visible');
         <?php endif; ?>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-      <span class="navbar-toggler-icon"></span>
+      <i data-lucide="menu" class="text-white"></i>
     </button>
     <div class="collapse navbar-collapse" id="mainNav">
             <?php
@@ -52,19 +49,38 @@ $wsp = carbon_get_theme_option('projects_section_is_visible');
             ?>
             <div class="ms-auto d-lg-inline-flex ">
 
-
-            <a href="#" class="btn text-white ms-lg-3 d-none d-lg-inline-flex align-items-center">
-               <i data-lucide="menu"></i>
-            </a>
-
- <a href="#" class="btn text-white ms-lg-3 d-none d-lg-inline-flex align-items-center">
-<i data-lucide="search"></i>
-            </a>
+            <div class="ms-auto d-lg-inline-flex">
+                <button type="button" class="menu-search-btn" data-bs-toggle="modal" data-bs-target="#searchModal">
+                    <i data-lucide="search"></i>
+                    <span class="d-block-xs d-md-none">Buscar</span>
+                </button>
+        </div>
 
             </div>
            
         </div>
   </div>
 </nav>
+</div>
 
+        
+
+
+<!-- Modal de Búsqueda -->
+<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content position-relative">
+    
+    <div class="position-absolute top-0 start-100 translate-middle">
+        <button type="button" class="btn-close rounded-circle btn-primary-krom" data-bs-dismiss="modal" aria-label="Cerrar">
+            <i data-lucide="x"></i>
+        </button>
+    </div>
+      <div class="modal-body p-5">
+      <div class="w-100">
+          <?php get_search_form(); ?>
+      </div>
+    </div>
+    </div>
+  </div>
 </div>

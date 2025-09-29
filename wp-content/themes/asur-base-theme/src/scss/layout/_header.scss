@@ -1,115 +1,243 @@
-// Main navigation styles
+// ———————————————————————————————
+// Main Navigation (Navbar)
+// ———————————————————————————————
+%lucide-icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  display: inline-block;
+}
+
+%transition-base {
+  transition: color 0.2s ease;
+}
+
 .navbar {
   position: fixed;
+  top: 0;
   width: 100%;
   background: transparent;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  z-index: 1030; // Ensures the navbar stays on top
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    border-color 0.3s ease;
+  z-index: 1030;
 
-  // Logo visibility based on scroll state
+  // Logos
   .logo-color {
     display: block;
   }
-
   .logo-white {
     display: none;
   }
 
-  // Navbar links and buttons
+  // Enlaces y botones
   .nav-link,
   .dropdown-item {
     color: #fff;
-    transition: color 0.3s;
+    @extend .hvr-underline-from-center;
+    @extend %transition-base;
+
+    i[data-lucide] {
+      @extend %lucide-icon;
+      margin-left: 0.4em;
+
+      &[data-lucide="chevron-right"] {
+        margin: 0 0.6em 0 0;
+      }
+    }
   }
 
   .btn {
     padding: 0.5rem 1.25rem;
     border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: all 0.2s ease;
 
     &.btn-primary {
       background-color: $primary;
       border: none;
+      color: #fff;
 
       &:hover {
-        background-color: darken($primary, 5%);
+        color: #fff;
       }
     }
   }
 
-  // Dropdown menu base
+  // Dropdown base
   .dropdown-menu {
     background-color: $primary;
     border: none;
-    border-radius: 0;
-    display: none;
-    position: relative; // referencia para los hijos
-  }
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    min-width: 12rem;
+    padding: 0.5rem 0;
 
-  .dropdown-submenu {
-    position: absolute;
-    top: 0;
-    left: 100%; // hacia la derecha
-    margin-top: -6px;
-    margin-left: -1px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: 20px;
+      border: 8px solid transparent;
+      border-bottom-color: $primary;
+      z-index: 1001;
+    }
 
-    @media (max-width: 991.98px) {
-      left: 0;
-      top: auto;
-      position: static;
-      margin-top: 0;
-      margin-left: 0;
+    .dropdown-item {
+      @extend .fs-sm;
+      padding: 0.5rem 1.25rem;
+      color: rgba(255, 255, 255, 0.9);
+      @extend %transition-base;
+
+      &:hover,
+      &:focus {
+        color: #fff;
+        background-color: transparent !important;
+      }
     }
   }
 
-  // Mostrar los menús abiertos al hacer click
-  .dropdown-menu.show {
-    display: block;
+  .menu-search-btn {
+    @extend .btn;
+    @extend .text-white;
+    @extend .ms-lg-3;
+    //@extend .d-none;
+    @extend .d-lg-inline-flex;
+    @extend .align-items-center;
+  }
+
+  // Submenús anidados
+  .dropdown-submenu {
+    position: relative;
+
+    > .dropdown-menu {
+      top: 0;
+      left: 100%;
+      margin: -0.5rem 0 0 0;
+
+      @media (max-width: 991.98px) {
+        position: static;
+        margin: 0;
+        padding-left: 1rem;
+        border-left: 2px solid rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+
+  // Ocultar caret de Bootstrap
+  .dropdown-toggle::after {
+    display: none !important;
   }
 }
 
-/*
-
-dropdown-menu dropdown-submenu show
-
-*/
-
-// -----
+// ———————————————————————————————
+// Navbar en scroll (modo claro)
+// ———————————————————————————————
 .navbar.scrolled {
   background-color: #fff !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
+  .menu-search-btn {
+    @extend .text-primary;
+  }
+
   .nav-link,
   .navbar-brand {
     color: #000 !important;
+
+    i[data-lucide] {
+      color: inherit;
+    }
   }
 
   .navbar-toggler {
     background-color: $primary;
+    border-color: $primary;
+    color: #fff;
   }
 
+  // Intercambiar logos
   .logo-color {
     display: none;
   }
-
   .logo-white {
     display: block;
   }
+
+  // Dropdown en modo claro
+  .dropdown-menu {
+    background-color: #fff;
+    color: #000;
+
+    &::before {
+      border-bottom-color: #fff;
+    }
+
+    .dropdown-item {
+      color: #212529;
+
+      &:hover,
+      &:focus {
+        color: $primary;
+      }
+    }
+  }
 }
 
-.dropdown-menu {
-  display: none;
+// Dropdown abierto
+.dropdown.show {
+  .nav-link i[data-lucide="chevron-down"] {
+    transform: rotate(180deg);
+    transition: transform 0.2s ease;
+  }
 }
-.dropdown-menu.show {
-  display: block;
-}
-.dropdown-submenu > .dropdown-menu {
-  top: 0;
-  left: 100%; /* desktop */
-  @media (max-width: 991.98px) {
-    position: static;
-    left: 0;
+
+// ———————————————————————————————
+// Ajustes para versión móvil
+// ———————————————————————————————
+@media (max-width: 991.98px) {
+  .dropdown,
+  .nav-link {
+    display: block;
+  }
+
+  .navbar {
+    .dropdown-menu {
+      width: 100% !important; // ocupar todo el ancho
+      border-radius: 0; // sin bordes redondeados
+      margin: 0; // sin márgenes
+      box-shadow: none; // sin sombra
+      position: static; // seguir el flujo del menú
+
+      &::before {
+        display: none !important; // elimina el pico
+      }
+
+      .dropdown-item {
+        padding: 0.75rem 1rem; // más cómodo para tocar con el dedo
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+
+    .dropdown-submenu > .dropdown-menu {
+      padding-left: 0; // evita indentación extra
+      border-left: none;
+    }
+  }
+
+  .menu-search-btn {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+
+    //@extend .btn;
+    //@extend .text-white;
+    //@extend .ms-lg-3;
+    //@extend .d-none;
+    //@extend .d-lg-inline-flex;
+    //@extend .align-items-center;
   }
 }

@@ -36,6 +36,14 @@ p {
   }
 }
 
+.btn-primary-krom {
+  @extend .btn-primary;
+  @extend .text-white;
+  font-family: $font-primary;
+  @extend .hvr-radial-out;
+  border-radius: $btn-border-radius;
+}
+
 .img-krom {
   @extend .img-fluid;
   border-radius: $image-border-radius;

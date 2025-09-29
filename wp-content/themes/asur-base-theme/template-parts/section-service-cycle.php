@@ -1,78 +1,87 @@
-<div class="container my-5">
+<?//TODO ?>
+
+<div class="container my-5 d-none">
   <div class="row">
-    <div class="col-12 text-center text-md-start">
-      <p class="text-uppercase fw-bold" style="color: #f7a38f;">SERVICIO</p>
-      <h2 class="display-5 fw-bold mb-3">CICLO DEL SERVICIO</h2>
-      <p class="w-75 mx-auto mx-md-0">
-        Desarrollamos integralmente un Ciclo de Servicios en tres (4, 5, ...) etapas, para asegurar un máximo cumplimiento del conjunto de necesidades del cliente.
-      </p>
-    </div>
-  </div>
-
-  <div class="row align-items-center justify-content-center mt-5">
-    <div class="col-auto">
-      <div id="prev-arrow" class="btn p-0">
-        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16" style="transform: rotate(30deg); color: #354966;">
-          <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
-        </svg>
-      </div>
-    </div>
     
-    <div class="col-auto position-relative text-center mx-3">
-      <div id="main-image-container" class="position-relative">
-        <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="currentColor" class="bi bi-arrow-right-circle-fill position-absolute top-0 end-0 translate-middle-x" viewBox="0 0 16 16" style="transform: rotate(150deg); color: #f7a38f;">
-          <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
-        </svg>
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      
+    
+<div class="row">
+  <div class="col">
+    <h6 class="over-title">KROM INDUSTRY</h6>
+    <h2 class="title">CICLO DEL SERVICIO</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, magnam, minus distinctio molestiae molestias dolorum quibusdam quas sit explicabo error nemo modi provident dolor nesciunt ut laborum? Dolores, obcaecati maxime.</p>
+  </div>
+  <div class="col">
 
-        <div id="circle-image" class="rounded-circle overflow-hidden" style="width: 300px; height: 300px; border: 20px solid #f7a38f;">
-          <img id="dynamic-image" src="https://picsum.photos/400/400" class="img-fluid w-100 h-100" style="object-fit: cover;" alt="Imagen del ciclo">
-        </div>
-        
-        <div id="number-circle" class="rounded-circle position-absolute top-50 start-50 translate-middle d-flex align-items-center justify-content-center fw-bold fs-1" style="width: 80px; height: 80px; background-color: #354966; color: white;">
-          1
-        </div>
-      </div>
-    </div>
+<div class="relative">
+ 
+<div class="absolute">
+   <svg width="485" height="691" viewBox="0 0 485 691" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M485.5 136V38.5C481.992 35.6017 429.5 12.5 402.234 7.34271C388.813 3.854 350.891 -2.31834 306.564 0.902007C262.236 4.12236 202.124 20.6266 140.284 67.7243L122 54.4403L125.588 143L220.062 140.146L200.953 123.913C248.763 82.2159 344.513 73.8816 396.653 89.4617C452 106 480 130.5 485.5 136Z" fill="#EE5135" fill-opacity="0.6"/>
+<path d="M157.495 178.38L62.1372 160.227C58.6544 163.142 37.0457 203.027 26.6768 222.605C20.7607 235.169 7.63656 271.356 2.46862 315.591C-2.69932 359.826 2.12424 422.066 36.4481 491.684L20.0717 507.218L107.077 520.121L121.999 426.588L102.594 442.386C70.9052 387.583 78.4821 290.536 105.685 243.339C132.887 196.142 151.56 180.368 157.495 178.38Z" fill="#162944"/>
+<path d="M144.122 519.205L118.161 612.74C120.779 616.451 158.745 641.278 177.4 653.227C189.433 660.16 224.413 676.226 268.071 685.027C311.728 693.828 374.154 694.157 446.367 665.696L460.496 683.298L480.536 597.655L388.554 575.064L402.697 595.707C345.465 622.765 249.375 607.205 204.584 576.2C159.793 545.195 145.613 525.285 144.122 519.205Z" fill="#EE5135" fill-opacity="0.6"/>
+</svg>
+</div>
 
-    <div class="col-auto">
-      <div id="next-arrow" class="btn p-0">
-        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16" style="transform: rotate(30deg); color: #f7a38f;">
-          <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
-        </svg>
-      </div>
-    </div>
+</div>
+
   </div>
 </div>
 
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-  const images = [
-    { number: 1, url: "https://picsum.photos/400/400?random=1" },
-    { number: 2, url: "https://picsum.photos/400/400?random=2" },
-    { number: 3, url: "https://picsum.photos/400/400?random=3" },
-    { number: 4, url: "https://picsum.photos/400/400?random=4" }
-  ];
 
-  let currentIndex = 0;
-  const dynamicImage = document.getElementById("dynamic-image");
-  const numberCircle = document.getElementById("number-circle");
-  const prevArrow = document.getElementById("prev-arrow");
-  const nextArrow = document.getElementById("next-arrow");
 
-  function updateContent() {
-    dynamicImage.src = images[currentIndex].url;
-    numberCircle.textContent = images[currentIndex].number;
-  }
+    </div>
+    
+  <div class="carousel-item active">
+      
+    
+<div class="row">
+  <div class="col">
+    <h6 class="over-title">KROM INDUSTRY</h6>
+    <h2 class="title">CICLO DEL SERVICIO</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, magnam, minus distinctio molestiae molestias dolorum quibusdam quas sit explicabo error nemo modi provident dolor nesciunt ut laborum? Dolores, obcaecati maxime.</p>
+  </div>
+  <div class="col">
 
-  prevArrow.addEventListener("click", function() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    updateContent();
-  });
+<div class="relative">
+ 
+<div class="absolute">
+   <svg width="485" height="691" viewBox="0 0 485 691" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M485.5 136V38.5C481.992 35.6017 429.5 12.5 402.234 7.34271C388.813 3.854 350.891 -2.31834 306.564 0.902007C262.236 4.12236 202.124 20.6266 140.284 67.7243L122 54.4403L125.588 143L220.062 140.146L200.953 123.913C248.763 82.2159 344.513 73.8816 396.653 89.4617C452 106 480 130.5 485.5 136Z" fill="#EE5135" fill-opacity="0.6"/>
+<path d="M157.495 178.38L62.1372 160.227C58.6544 163.142 37.0457 203.027 26.6768 222.605C20.7607 235.169 7.63656 271.356 2.46862 315.591C-2.69932 359.826 2.12424 422.066 36.4481 491.684L20.0717 507.218L107.077 520.121L121.999 426.588L102.594 442.386C70.9052 387.583 78.4821 290.536 105.685 243.339C132.887 196.142 151.56 180.368 157.495 178.38Z" fill="#162944"/>
+<path d="M144.122 519.205L118.161 612.74C120.779 616.451 158.745 641.278 177.4 653.227C189.433 660.16 224.413 676.226 268.071 685.027C311.728 693.828 374.154 694.157 446.367 665.696L460.496 683.298L480.536 597.655L388.554 575.064L402.697 595.707C345.465 622.765 249.375 607.205 204.584 576.2C159.793 545.195 145.613 525.285 144.122 519.205Z" fill="#EE5135" fill-opacity="0.6"/>
+</svg>
+</div>
 
-  nextArrow.addEventListener("click", function() {
-    currentIndex = (currentIndex + 1) % images.length;
-    updateContent();
-  });
-});
-</script>
+</div>
+
+  </div>
+</div>
+
+
+
+
+    </div>
+
+
+  </div>
+  
+  
+  
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+</div>
+
+
