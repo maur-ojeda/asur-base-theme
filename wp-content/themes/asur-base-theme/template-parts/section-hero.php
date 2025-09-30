@@ -1,5 +1,9 @@
 <?php
 
+
+
+
+
 $selected_hero_id = carbon_get_post_meta(get_the_ID(), 'selected_hero');
 
 $args = array(
@@ -31,6 +35,12 @@ if ($hero_query->have_posts()) :
         $is_visible       = carbon_get_the_post_meta('is_visible');        
         
         ?>
+
+
+
+
+
+
 
         <section class="hero home" 
             style="background-image: url('<?php echo esc_url(ensure_https($background_image)); ?>')">

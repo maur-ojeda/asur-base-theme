@@ -87,7 +87,8 @@ Container::make('post_meta', 'Contenido de innovación')
             ->set_help_text('Agrega fichas técnicas, brochures y otros materiales.')
             ->add_fields([
                 Field::make('text', 'crb_info_file_name', 'Título del Material'),
-                Field::make( 'image', 'crb_info_file_image', 'Imagen ' ),
+                Field::make( 'image', 'crb_info_file_image', 'Imagen ' )
+                ->set_value_type('url'),    
                 Field::make('file', 'crb_info_file_esp', 'Archivo español')
                     ->set_value_type('url'),
                 Field::make('file', 'crb_info_file_eng', 'Archivo ingles')

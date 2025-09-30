@@ -1,12 +1,12 @@
 <?php get_header(); ?>
-
-<div class="container py-5">
+<?php get_template_part('template-parts/section', 'hero', ['index' => 0]); ?>
+<div class="container-krom py-5">
     <div class="row">
         <div class="col-12">
-            <h1 class="mb-4">
+            <h6 class="over-title">
                 Resultados de la búsqueda para: 
-                <span class="text-primary">"<?php echo esc_html( get_search_query() ); ?>"</span>
-            </h1>
+                <span class="text-muted">"<?php echo esc_html( get_search_query() ); ?>"</span>
+            </h6>
 
             <?php if ( have_posts() ) : ?>
                 <div class="row g-4">
@@ -14,7 +14,7 @@
                         <div class="col-12">
                             <article class="card border-0 shadow-sm h-100">
                                 <div class="card-body">
-                                    <h2 class="h4 card-title">
+                                    <h2 class="title text-secondary" data-aos="fade-up" data-aos-delay="400">
                                         <a href="<?php the_permalink(); ?>" class="text-decoration-none text-dark">
                                             <?php the_title(); ?>
                                         </a>
@@ -28,12 +28,12 @@
                                         }
                                         ?>
                                     </p>
-                                    <a href="<?php the_permalink(); ?>" class="btn btn-outline-primary btn-sm">
-                                        Leer más
+                                    <a href="<?php the_permalink(); ?>" class="btn btn-krom">
+                                        Leer más <i data-lucide="arrow-right"></i>
                                     </a>
                                 </div>
                                 <div class="card-footer bg-transparent border-0 pt-0">
-                                    <small class="text-muted">
+                                    <small class="text-muted d-none">
                                         Publicado el <?php echo get_the_date(); ?>
                                         <?php if ( get_the_category_list() ) : ?>
                                             en <?php the_category(', '); ?>

@@ -82,14 +82,18 @@ if ($item->have_posts()):
                                 <div class="row g-4 justify-content-center">
                                     <div class="col-12 col-md-6 col-lg-4">
                                         <div class="card border-0 rounded-4 overflow-hidden h-100">
+
+
+                                        
                                             <div class="position-relative">
                                                 <?php
                                                 $img_url = $material['image_id'] 
-                                                    ? wp_get_attachment_image_url($material['image_id'], 'medium') 
+                                                    ? $material['image_id']
                                                     : 'https://placehold.co/600x800';
                                                 ?>
                                                 
                                                 <img src="<?= esc_url($img_url); ?>" class="card-img-top" alt="<?= esc_attr($material['title']); ?>">
+                                                
                                                 
                                             </div>
                                             <div class="card-body">
@@ -138,9 +142,12 @@ if ($item->have_posts()):
                                         <div class="col-12 col-md-6 col-lg-4">
                                             <div class="card border-0 h-100">
                                                 <div class="position-relative">
+
+
+
                                                     <?php
                                                     $img_url = $material['image_id'] 
-                                                        ? wp_get_attachment_image_url($material['image_id'], 'medium') 
+                                                        ? $material['image_id'] 
                                                         : 'https://placehold.co/600x800';
                                                     ?>
                                                     <img src="<?= esc_url($img_url); ?>" class="card-img-top" alt="<?= esc_attr($material['title']); ?>">

@@ -25,6 +25,8 @@
   // Logos
   .logo-color {
     display: block;
+    height: 65px;
+    width: auto;
   }
   .logo-white {
     display: none;
@@ -63,6 +65,12 @@
     }
   }
 
+  .menu-search-btn {
+    @extend .text-white;
+    @extend .btn;
+    @extend .btn-link;
+  }
+
   // Dropdown base
   .dropdown-menu {
     background-color: $primary;
@@ -75,7 +83,7 @@
     &::before {
       content: "";
       position: absolute;
-      top: -8px;
+      top: -16px;
       left: 20px;
       border: 8px solid transparent;
       border-bottom-color: $primary;
@@ -96,15 +104,6 @@
     }
   }
 
-  .menu-search-btn {
-    @extend .btn;
-    @extend .text-white;
-    @extend .ms-lg-3;
-    //@extend .d-none;
-    @extend .d-lg-inline-flex;
-    @extend .align-items-center;
-  }
-
   // Submenús anidados
   .dropdown-submenu {
     position: relative;
@@ -114,11 +113,12 @@
       left: 100%;
       margin: -0.5rem 0 0 0;
 
-      @media (max-width: 991.98px) {
+      @include media-breakpoint-down(md) {
         position: static;
+        left: 0;
         margin: 0;
-        padding-left: 1rem;
-        border-left: 2px solid rgba(255, 255, 255, 0.2);
+        padding-left: 0;
+        border-left: none;
       }
     }
   }
@@ -132,14 +132,11 @@
 // ———————————————————————————————
 // Navbar en scroll (modo claro)
 // ———————————————————————————————
+
 .navbar.scrolled {
   background-color: #fff !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-
-  .menu-search-btn {
-    @extend .text-primary;
-  }
 
   .nav-link,
   .navbar-brand {
@@ -162,6 +159,8 @@
   }
   .logo-white {
     display: block;
+    height: 65px !important;
+    width: 143 !important;
   }
 
   // Dropdown en modo claro
@@ -182,6 +181,10 @@
       }
     }
   }
+
+  .menu-search-btn {
+    @extend .text-primary;
+  }
 }
 
 // Dropdown abierto
@@ -193,28 +196,32 @@
 }
 
 // ———————————————————————————————
-// Ajustes para versión móvil
+// Ajustes para versión móvil usando FastBootstrap
 // ———————————————————————————————
-@media (max-width: 991.98px) {
-  .dropdown,
-  .nav-link {
-    display: block;
+
+@include media-breakpoint-down(lg) {
+  .dropdown {
+    display: block !important;
+  }
+
+  .menu-search-btn {
+    padding: 0 !important;
   }
 
   .navbar {
     .dropdown-menu {
-      width: 100% !important; // ocupar todo el ancho
-      border-radius: 0; // sin bordes redondeados
-      margin: 0; // sin márgenes
-      box-shadow: none; // sin sombra
-      position: static; // seguir el flujo del menú
+      width: 100% !important;
+      border-radius: 0;
+      margin: 0;
+      box-shadow: none;
+      position: static;
 
       &::before {
-        display: none !important; // elimina el pico
+        display: none !important;
       }
 
       .dropdown-item {
-        padding: 0.75rem 1rem; // más cómodo para tocar con el dedo
+        padding: 0.5rem 0.5rem;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
         &:last-child {
@@ -224,20 +231,8 @@
     }
 
     .dropdown-submenu > .dropdown-menu {
-      padding-left: 0; // evita indentación extra
+      padding-left: 0;
       border-left: none;
     }
-  }
-
-  .menu-search-btn {
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-
-    //@extend .btn;
-    //@extend .text-white;
-    //@extend .ms-lg-3;
-    //@extend .d-none;
-    //@extend .d-lg-inline-flex;
-    //@extend .align-items-center;
   }
 }

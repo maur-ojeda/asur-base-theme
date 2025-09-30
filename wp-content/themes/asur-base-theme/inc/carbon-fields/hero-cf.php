@@ -39,3 +39,5 @@ Container::make('post_meta', 'Hero Asociado')
         ->set_max(1)
         ->set_help_text('Selecciona el hero que se mostrará en esta página.')
 ]);
+
+
