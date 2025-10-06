@@ -16,6 +16,26 @@ Container::make('post_meta', 'Contenido de empresa')
 
                     ])
                     ->set_layout( 'tabbed-horizontal' ),     
+                Field::make('separator', 'crb_company_separator_01', 'company Team Picture'),     
+                Field::make('select', 'crb_company_op', 'Nivel de opacidad')
+                    ->add_options([
+                    '' => 'Selecciona una opacidad',
+                    'opacity-25' => '25%',
+                    'opacity-50' => '50%',
+                    'opacity-75' => '75%',
+                    'opacity-100' => '100%',
+                    ])
+                    ->set_default_value('opacity-25')
+                    ->set_width(33),
+                Field::make('color', 'crb_company_bg', 'Color de fondo')
+                    ->set_palette(['#ffffff', '#000000', '#162944'])
+                    ->set_help_text('Este color se usará como mascara de fondo ')
+                    ->set_default_value('#162944')
+                    ->set_width(33),    
+                Field::make( 'image', 'crb_company_img', 'Imagen de equipo')
+                    ->set_value_type('url')
+                        ->set_width(33),    
+           
 
 
     ]);

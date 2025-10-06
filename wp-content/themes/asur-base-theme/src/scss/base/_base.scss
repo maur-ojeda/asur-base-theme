@@ -1,22 +1,31 @@
+.over-title {
+  @extend .text-primary;
+  @extend .fw-semibold;
+  @extend .fs-6;
+  @extend .text-uppercase;
+  @extend .mb-3;
+}
+
 .title {
   @extend .display-2;
   @extend .text-uppercase;
   @extend .fw-semibold;
-  @extend .fs-1;
+  @extend .fs-2;
+  @extend .mb-4;
 }
 
-.over-title {
-  @extend .text-primary;
-  @extend .fw-semibold;
-  @extend .fs-5;
+.wysiwyg {
+  font-size: $fs-xs !important;
 }
-
 p {
-  @extend .fs-sm;
+  strong {
+    font-size: $fs-xs;
+  }
+  font-size: $fs-xs;
 }
 
 .lead {
-  @extend .fs-6-5;
+  font-size: $fs-xs;
 }
 
 .btn-krom {
@@ -130,7 +139,7 @@ p {
 
 .container-krom {
   @extend .container-fluid;
-  padding: 0 3.5rem;
+  padding: 0 7.5rem;
 }
 
 #projectsCarousel {

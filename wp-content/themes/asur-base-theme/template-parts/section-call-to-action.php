@@ -14,7 +14,7 @@ if ($block) :
 
 
 <section class="call-to-action my-20 py-20">
-    <div class="container-krom">
+    <div class="container-fluid">
         <div class="row">
             <div class="call-to-action-item">
                <h2 class="title" data-aos="fade-up" data-aos-delay="400"><?= esc_html($title); ?></h2>

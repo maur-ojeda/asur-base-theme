@@ -1,0 +1,21 @@
+$block: "companyTeamPicture";
+
+.#{$block} {
+  &-overlay {
+    @extend .position-absolute;
+    @extend .z-0;
+    @extend .top-0;
+    @extend .start-0;
+    @extend .w-100;
+    @extend .h-100;
+  }
+  &-image {
+    @extend .img-fluid;
+    @extend .w-100;
+  }
+  &-shape {
+    @extend .position-absolute;
+    @extend .w-100;
+    @extend .bottom-0;
+  }
+}

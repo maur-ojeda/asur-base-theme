@@ -1,18 +1,3 @@
 .info-block {
   @extend .m-block;
-
-  .title,
-  .over-title {
-    @extend .text-uppercase;
-    @extend .mb-7;
-  }
-
-  .wysiwyg {
-    strong {
-      @extend .fs-sm;
-    }
-    p {
-      font-size: 1.125rem !important;
-    }
-  }
 }
