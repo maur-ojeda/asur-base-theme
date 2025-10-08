@@ -1,16 +1,4 @@
 <?php
-/**
- * The template for displaying the footer
- *
- * Contains the closing of the main content div and all content after.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials *
- * @package asur-base-theme
- */
-?>
-
-<?php
-// Consulta para obtener los ajustes del footer desde el CPT
 $footer_settings_query = new WP_Query([
     'post_type'      => 'footer_settings',
     'posts_per_page' => 1,
@@ -19,7 +7,6 @@ $footer_settings_query = new WP_Query([
     'order'          => 'DESC',
 ]);
 
-// Valores por defecto como fallback
 
 if ($footer_settings_query->have_posts()) {
     while ($footer_settings_query->have_posts()) {
@@ -42,10 +29,9 @@ if ($footer_settings_query->have_posts()) {
 ?>
  
 </main>
-
-<div class="footer-bg">
-<div class="footer-image-clipped" style="background-image: url('<?php echo ensure_https($footer_bg_image); ?>');">
-<div class="bg-dark-blue- py-5 " style="z-index: 4;">
+<div class="footer-bg d-none d-lg-block">   
+    <div class="footer-image-clipped" style="background-image: url('<?php echo ensure_https($footer_bg_image); ?>');">
+    <div class="py-5 " style="z-index: 4;">
         <div class="container footer-content">
             <div class="row">
                 <div class="col-12 col-lg-5 mb-4 mb-lg-0">
@@ -132,15 +118,46 @@ if ($footer_settings_query->have_posts()) {
     <div class="shape-bottom-orange"></div>
 </div>
 
+ <footer class="footer-movil">                                                                      
+      <div class="container">                                                                                             
+          <div class="row">                                                                                               
+              <div class="col-md-6 mb-3">                                                                                 
+                  <img src="<?php echo ensure_https($footer_logo); ?>" alt="KROM" class="footer-movil-logo">
+                  <p class="fs-xs"><?php echo esc_html( $footer_description ); ?></p>                                     
+              </div>                                                                                                      
+              <div class="col-md-3 mb-3">                                                                                 
+                  <h5 class="fw-bold">Servicios</h5>                                                                      
+                  <?php                                                                                                   
+                  wp_nav_menu([                                                                                           
+                      'theme_location' => 'main_menu',                                                                    
+                      'menu_class'     => 'list-unstyled',                                                                
+                      'container'      => 'ul',                                                                           
+                      'fallback_cb'    => false,                                                                          
+                      'depth'          => 1,                                                                              
+                  ]);                                                                                                     
+                  ?>                                                                                                      
+              </div>                                                                                                      
+              <div class="col-md-3 mb-3">                                                                                 
+                  <h5 class="fw-bold">Contacto</h5>                                                                       
+                  <ul class="list-unstyled small">                                                                        
+                      <li><i class="icon-xs" data-lucide="phone"></i> <?php echo esc_html( $contact_phone ); ?></li>                                                  
+                      <li><i class="icon-xs" data-lucide="mail"></i> <?php echo esc_html( $contact_email ); ?></li>                                                  
+                      <li><i class="icon-xs" data-lucide="map-pin"></i> <?php echo esc_html( $contact_address ); ?></li>                                                
+                  </ul>                                                                                                   
+            </div>                                                                                                      
+          </div>                                                                                                          
+          <div class="row">                                                                                               
+              <div class="col-12 text-center border-top border-secondary pt-3 mt-3">                                      
+                  <p class="small mb-0">Copyright ©  <?php echo date('Y'); ?> All rights reserved.</p>                    
+              </div>                                                                                                      
+         </div>                                                                                                          
+  </div>                                                                                                              
+  </footer>                                                                                                               
+       
 
 
 
 
-
-<?php wp_footer();?>
-
-
-
-
+    <?php wp_footer();?>
 </body>
 </html>

@@ -1,0 +1,65 @@
+/* Color personalizado */
+.text-custom-orange {
+  color: #f7a38f;
+}
+
+/* Estilo del contenedor principal del carrusel */
+.partners-swiper {
+  padding-bottom: 20px; /* Espacio para la sombra de las tarjetas */
+}
+
+/* Estilo del contenedor de la imagen para el efecto curvo */
+.partner-card {
+  background-color: white;
+
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: perspective(1000px) rotateX(5deg) scale(0.95);
+  transition: transform 0.3s ease-in-out;
+  height: auto; /* Permite que la altura se ajuste a la imagen */
+}
+
+/* Elimina el `hover` si el carrusel es automático */
+.partner-card:hover {
+  transform: perspective(1000px) rotateX(0deg) scale(1);
+}
+
+.partner-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ajusta los colores de las flechas de navegación de Swiper */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #f7a38f !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 2rem !important;
+}
+
+.top-circle {
+  @extend .position-absolute;
+  background-color: $body-bg;
+  width: 116%;
+  top: -100px;
+  left: -8%;
+  height: 116px;
+  border-radius: 100%;
+
+  z-index: 5;
+}
+
+.bottom-circle {
+  @extend .position-absolute;
+  background-color: $body-bg;
+  z-index: 5;
+  width: 116%;
+  bottom: -90px;
+  left: -8%;
+  height: 116px;
+  border-radius: 100%;
+}

@@ -12,11 +12,15 @@ if ($block) :
             $content = apply_filters('the_content', $block->post_content);
             $type = carbon_get_post_meta($block->ID, 'type');            
             $overTitle  = carbon_get_post_meta($block->ID, 'over_title');
-            $extraTitle = carbon_get_post_meta($block->ID, 'extraTitle');
+            $extraTitle = carbon_get_post_meta($block->ID, 'extra_title');
+            $extraOverTitle  = carbon_get_post_meta($block->ID, 'extra_overtitle');
             $image       = carbon_get_post_meta($block->ID, 'image');
             $btnText     = carbon_get_post_meta($block->ID, 'btnText');
             $btnUrl     = carbon_get_post_meta($block->ID, 'btn_url');
             $order = '';
+
+      
+
 
             switch ($type) {
                 case 'type-2': // texto derecha, imagen izquierda, adorno izquierda
@@ -35,7 +39,6 @@ if ($block) :
 
 
 
-
 <section class="info-block">
     <div class="container mt-5">        
         <?php if ($type === 'type-3' && $extraTitle && $extraOverTitle) : ?>
@@ -51,7 +54,8 @@ if ($block) :
 
             <?php // --- Image Column (if not type-6) --- ?>
             <?php if ($type !== 'type-6') : ?>
-                <div class="col-12 <?= ($type !== 'type-2' && $type !== 'type-8' && $type !== 'type-9') ? 'offset-md-1' : '' ?> <?= ($type === 'type-8' || $type === 'type-9') ? 'col-md-6' : 'col-md-4' ?> <?= esc_attr($order); ?>" data-aos="fade-right">
+                <div class="col-12 <?= ($type !== 'type-2' && $type !== 'type-8' && $type !== 'type-9') ? 'offset-md-1' : '' ?> <?= ($type === 'type-8' || $type === 'type-9') ? 'col-md-6' : 'col-md-4' ?> <?= esc_attr($order); ?>" data-aos="fade-up
+                ">
                     <div class="img-krom-wrapper <?= esc_attr($type); ?>">
                         <img class="img-krom <?= esc_attr($order); ?>  <?= ($type === 'type-8' || $type === 'type-9') ? 'w-100' : '' ?>" src="<?php echo esc_url(ensure_https($image)); ?>" alt="">
                     </div>

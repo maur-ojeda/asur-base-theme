@@ -23,7 +23,7 @@ if ($contact_query->have_posts()) :
 
 
             <div class="custom-bg-dark">
-                <div class="container-krom">
+                <div class="container">
                     <div class="col-12 py-10">
                         <h6 class="over-title" data-aos="fade" data-aos-delay="800"><?php echo esc_html($overtitle); ?></h6>
                         <h3 class="title text-white" data-aos="fade-up"><?php echo esc_html($title); ?></h3>
@@ -35,7 +35,7 @@ if ($contact_query->have_posts()) :
 
 
 
-        <div class="container-krom pt-20 pb-20" style="background-image:url('<?php echo esc_url(ensure_https($bg_imagen)); ?>');  background-size: cover; background-position: center; min-height: 100vh;">    
+        <div class="container-fluid pt-20 pb-20" style="background-image:url('<?php echo esc_url(ensure_https($bg_imagen)); ?>');  background-size: cover; background-position: center; min-height: 100vh;">    
             <div class="col-12 col-md-8 col-lg-5 form-container rounded">
                 <h4 class="mb-4"><?php echo esc_html($form_title); ?></h4>
                 

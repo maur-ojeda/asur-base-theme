@@ -69,3 +69,47 @@ function get_reusable_cpt_block_simple($block_ids, $cpt_name, $block_index = 0) 
 
     return $block_post;
 }
+
+
+
+function get_page_id_by_slug($slug) {
+    $page = get_page_by_path($slug);
+    return $page ? $page->ID : 0;
+}
+
+
+
+/**
+ * Obtiene un bloque de partner-carousel asociado a la página actual.
+ *
+ * @param int $post_id ID de la página.
+ * @param int $index Índice del bloque (normalmente 0).
+ * @return WP_Post|null
+ */
+function get_partner_carousel_block($post_id, $index = 0) {
+    $selected = carbon_get_post_meta($post_id, 'selected-partner-carousel');
+
+    if (empty($selected) || !isset($selected[$index]['id'])) {
+        return null;
+    }
+
+    $block_id = $selected[$index]['id'];
+
+    $query = new WP_Query([
+        'post_type' => 'partner-carousel',
+        'p' => $block_id,
+        'post_status' => 'publish',
+        'posts_per_page' => 1,
+    ]);
+
+    if (!$query->have_posts()) {
+        wp_reset_postdata();
+        return null;
+    }
+
+    $query->the_post();
+    $post = get_post();
+    wp_reset_postdata();
+
+    return $post;
+}

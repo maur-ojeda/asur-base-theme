@@ -6,7 +6,6 @@ use Carbon_Fields\Field;
     Container::make('post_meta', 'Campos de partners')
         ->where('post_type', '=', 'partner')
         ->add_fields([     
-
            Field::make('checkbox', 'is_visible', 'Mostrar esta sección')
             ->set_option_value('yes')
             ->set_width(50)

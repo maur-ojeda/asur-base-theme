@@ -1,103 +1,52 @@
 #contact {
-  @extend .py-10;
-
-  .contact-info-wrapper {
-    @extend .position-relative;
-    .contact-info {
-      @extend .position-absolute;
-      @extend .top-25;
-      @extend .pe-4;
-      //@extend .start-50;
-    }
+  .custom-bg-dark {
+    background-color: #162944 !important;
+  }
+  .custom-orange {
+    color: $primary;
+  }
+  .form-container {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 5rem;
   }
 
-  .intro-section {
-    @extend .text-center;
-    @extend .text-white;
-    p {
-      @extend .lead;
-      @extend .mb-5;
-    }
-  }
+  .form-container {
+    box-shadow: 8px 6px 13.1px 2px rgba(238, 81, 53, 0.18);
 
-  .contact-item {
-    @extend .text-white;
-    @extend .d-flex;
-    @extend .align-items-start;
-    @extend .mb-3;
-
-    .icon {
-      @extend .p-3;
-      @extend .rounded-circle;
-      @extend .border;
-      @extend .border-white;
-      font-size: 0.9rem;
-    }
-    .content {
-      @extend .ps-3;
-    }
-    a {
-      @extend .text-white;
-      text-decoration: none;
-    }
-  }
-
-  .form {
-    .wpcf7-response-output {
-      border: none !important;
-      @extend .text-white;
+    .form-control {
+      border-width: 1px !important;
     }
 
-    @extend .container;
-    @extend .rounded;
-    @extend .border;
-    @extend .border-white;
-    @extend .py-3;
-
-    h2 {
-      @extend .text-white;
-      @extend .mb-3;
+    .is-invalid {
+      border-color: #dc3545 !important;
+      box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
     }
 
-    .wpcf7-form {
-      @extend .row;
-
-      p {
-        @extend .col-12;
-      }
-      @media (min-width: 768px) {
-        p {
-          @extend .col-md-6;
-        }
-      }
-
-      label {
-        @extend .w-100;
-        @extend .text-white;
-        input,
-        textarea,
-        select {
-          @extend .form-control;
-        }
-      }
-
-      p:has(.wpcf7-submit) {
-        @extend .col-12;
-      }
-
-      p:has(textarea) {
-        @extend .col-12;
-        label {
-          @extend .w-100;
-        }
-      }
-      input.wpcf7-submit {
-        @extend .btn;
-        @extend .btn-primary;
-        @extend .btn-lg;
-        @extend .w-100;
-        @extend .border;
-      }
+    .error-message {
+      display: block;
+      color: #dc3545;
+      font-size: 0.875em;
+      margin-top: 0.25rem;
     }
   }
 }
+
+/*
+
+
+// Tablet
+@include media-breakpoint-down(lg) {
+  max-height: 400px;
+}
+// Mobile
+@include media-breakpoint-down(md) {
+  max-height: 300px;
+}
+// Mobile
+@include media-breakpoint-down(sm) {
+  max-height: 250px;
+}
+
+*/

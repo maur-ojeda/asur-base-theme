@@ -1,38 +1,148 @@
-<div class="container-fluid p-0">
+<?php
+$page_id = get_the_ID();
+$selected_service_cycles = carbon_get_post_meta($page_id, 'selected_service_cycle');
+
+if (empty($selected_service_cycles)) {
+    return;
+}
+$service_cycle_id = $selected_service_cycles[0]['id'];
+
+$direction = carbon_get_post_meta($service_cycle_id, 'service-cycles-direction') === 'yes';
+$items = carbon_get_post_meta($service_cycle_id, 'service-cycles');
+
+
+
+
+if (empty($items)) {
+    return; // No hay slides
+}
+
+
+
+?>
+
+<div class="container-fluid p-0 service-cycle">
   <div class="row">
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
       <div class="carousel-inner">
-        <div class="carousel-item active">      
-          <div class="row">
-            <div class="col-8">
-              <h6 class="over-title">KROM INDUSTRY</h6>
-              <h2 class="title">CICLO DEL SERVICIO</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, magnam, minus distinctio molestiae molestias dolorum quibusdam quas sit explicabo error nemo modi provident dolor nesciunt ut laborum? Dolores, obcaecati maxime.</p>
-            </div>
-            <div class="col-4">
-              <div class="relative">
-                <div class="absolute">
-                  <svg width="485" height="691" viewBox="0 0 485 691" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M485.5 136V38.5C481.992 35.6017 429.5 12.5 402.234 7.34271C388.813 3.854 350.891 -2.31834 306.564 0.902007C262.236 4.12236 202.124 20.6266 140.284 67.7243L122 54.4403L125.588 143L220.062 140.146L200.953 123.913C248.763 82.2159 344.513 73.8816 396.653 89.4617C452 106 480 130.5 485.5 136Z" fill="#EE5135" fill-opacity="0.6"/>
-                    <path d="M157.495 178.38L62.1372 160.227C58.6544 163.142 37.0457 203.027 26.6768 222.605C20.7607 235.169 7.63656 271.356 2.46862 315.591C-2.69932 359.826 2.12424 422.066 36.4481 491.684L20.0717 507.218L107.077 520.121L121.999 426.588L102.594 442.386C70.9052 387.583 78.4821 290.536 105.685 243.339C132.887 196.142 151.56 180.368 157.495 178.38Z" fill="#162944"/>
-                    <path d="M144.122 519.205L118.161 612.74C120.779 616.451 158.745 641.278 177.4 653.227C189.433 660.16 224.413 676.226 268.071 685.027C311.728 693.828 374.154 694.157 446.367 665.696L460.496 683.298L480.536 597.655L388.554 575.064L402.697 595.707C345.465 622.765 249.375 607.205 204.584 576.2C159.793 545.195 145.613 525.285 144.122 519.205Z" fill="#EE5135" fill-opacity="0.6"/>
-                  </svg>
+
+        <?php foreach ($items as $index => $item): ?>
+          <div class="carousel-item <?= $index === 0 ? 'active' : '' ?>">
+            <div class="container">
+              <div class="row">
+<?php if ($direction): ?>
+                <div class="col-8 pt-20">
+                  <h6 class="over-title"><?= esc_html($item['over-title'] ?? '') ?></h6>
+                  <h2 class="title"><?= esc_html($item['title'] ?? '') ?></h2>
+                  <p class="pe-5"><?= esc_html($item['text'] ?? '') ?></p>
                 </div>
+                <div class="col">
+                  <div class="position-relative">
+                    <div class="service-cycle-number">
+                      <?= $index + 1 ?>
+                    </div>
+                    <div class="absolute service-cycle-arrows">
+                      <svg class="rotate-anticlockwise" viewBox="0 0 688 688" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <title>Grupo 4</title>
+                      <g id="Página-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Group-209" transform="translate(-37, -23)">
+                          <g id="Grupo-4" transform="translate(381.085, 366.6559) rotate(-360) translate(-381.085, -366.6559) translate(37.4291, 23)">
+                            <g id="Grupo" transform="translate(0, 0)">
+                              <g id="Grupo-3" transform="translate(118.5709, 0)" fill="#EE5135" fill-opacity="0.5">
+                                <g id="Trazado-2" transform="translate(0, -0)">
+                                  <path d="M22,34 L0,122 L88.2969111,144.311804 L69.4703407,112.660922 C115.477526,80.2203075 167.820746,64 226.5,64 C273.718843,65.3143218 315.921075,75.5026791 353.106698,94.565072 L391.169912,42.2320658 C338.300336,14.0773553 283.410366,0 226.5,0 C159.173449,0 95.6668017,19.1989901 35.9800566,57.5969702 L22,34 Z" id="Trazado"></path>
+                                </g>
+                                <g id="Trazado-2" transform="translate(256.585, 615.1559) scale(-1, -1) translate(-256.585, -615.1559) translate(61, 543)">
+                                  <path d="M22,34 L0,122 L88.2969111,144.311804 L69.4703407,112.660922 C115.477526,80.2203075 167.820746,64 226.5,64 C273.718843,65.3143218 315.921075,75.5026791 353.106698,94.565072 L391.169912,42.2320658 C338.300336,14.0773553 283.410366,0 226.5,0 C159.173449,0 95.6668017,19.1989901 35.9800566,57.5969702 L22,34 Z" id="Trazado"></path>
+                                </g>
+                              </g>
+                              <g id="Grupo-3" transform="translate(343.6559, 344.6559) rotate(90) translate(-343.6559, -344.6559) translate(117.5709, 1)">
+                                <g id="Trazado-2" transform="translate(0, -0)" fill="#EE5135" fill-opacity="0.5">
+                                  <path d="M22,34 L0,122 L88.2969111,144.311804 L69.4703407,112.660922 C115.477526,80.2203075 167.820746,64 226.5,64 C273.718843,65.3143218 315.921075,75.5026791 353.106698,94.565072 L391.169912,42.2320658 C338.300336,14.0773553 283.410366,0 226.5,0 C159.173449,0 95.6668017,19.1989901 35.9800566,57.5969702 L22,34 Z" id="Trazado"></path>
+                                </g>
+                                <g id="Trazado-2" transform="translate(256.585, 615.1559) scale(-1, -1) translate(-256.585, -615.1559) translate(61, 543)" fill="#162944">
+                                  <path d="M22,34 L0,122 L88.2969111,144.311804 L69.4703407,112.660922 C115.477526,80.2203075 167.820746,64 226.5,64 C273.718843,65.3143218 315.921075,75.5026791 353.106698,94.565072 L391.169912,42.2320658 C338.300336,14.0773553 283.410366,0 226.5,0 C159.173449,0 95.6668017,19.1989901 35.9800566,57.5969702 L22,34 Z" id="Trazado"></path>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+                      
+                    </div>
+                    <div class="service-cycle-img" 
+                         style="background-image: url('<?= esc_url($item['image'] ?? '') ?>')">
+                    </div>
+                  </div>
+                </div>
+ <?php else: ?>
+
+<div class="col">
+                  <div class="position-relative">
+                    <div class="service-cycle-number-right">
+                      <?= $index + 1 ?>
+                    </div>
+                    <div class="absolute service-cycle-arrows">
+                      <svg class="rotate-clockwise" viewBox="0 0 688 688" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <title>Grupo 4</title>
+                      <g id="Página-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Group-209" transform="translate(-37, -23)">
+                          <g id="Grupo-4" transform="translate(381.085, 366.6559) rotate(-360) translate(-381.085, -366.6559) translate(37.4291, 23)">
+                            <g id="Grupo" transform="translate(0, 0)">
+                              <g id="Grupo-3" transform="translate(118.5709, 0)" fill="#EE5135" fill-opacity="0.5">
+                                <g id="Trazado-2" transform="translate(0, -0)">
+                                  <path d="M22,34 L0,122 L88.2969111,144.311804 L69.4703407,112.660922 C115.477526,80.2203075 167.820746,64 226.5,64 C273.718843,65.3143218 315.921075,75.5026791 353.106698,94.565072 L391.169912,42.2320658 C338.300336,14.0773553 283.410366,0 226.5,0 C159.173449,0 95.6668017,19.1989901 35.9800566,57.5969702 L22,34 Z" id="Trazado"></path>
+                                </g>
+                                <g id="Trazado-2" transform="translate(256.585, 615.1559) scale(-1, -1) translate(-256.585, -615.1559) translate(61, 543)">
+                                  <path d="M22,34 L0,122 L88.2969111,144.311804 L69.4703407,112.660922 C115.477526,80.2203075 167.820746,64 226.5,64 C273.718843,65.3143218 315.921075,75.5026791 353.106698,94.565072 L391.169912,42.2320658 C338.300336,14.0773553 283.410366,0 226.5,0 C159.173449,0 95.6668017,19.1989901 35.9800566,57.5969702 L22,34 Z" id="Trazado"></path>
+                                </g>
+                              </g>
+                              <g id="Grupo-3" transform="translate(343.6559, 344.6559) rotate(90) translate(-343.6559, -344.6559) translate(117.5709, 1)">
+                                <g id="Trazado-2" transform="translate(0, -0)" fill="#EE5135" fill-opacity="0.5">
+                                  <path d="M22,34 L0,122 L88.2969111,144.311804 L69.4703407,112.660922 C115.477526,80.2203075 167.820746,64 226.5,64 C273.718843,65.3143218 315.921075,75.5026791 353.106698,94.565072 L391.169912,42.2320658 C338.300336,14.0773553 283.410366,0 226.5,0 C159.173449,0 95.6668017,19.1989901 35.9800566,57.5969702 L22,34 Z" id="Trazado"></path>
+                                </g>
+                                <g id="Trazado-2" transform="translate(256.585, 615.1559) scale(-1, -1) translate(-256.585, -615.1559) translate(61, 543)" fill="#162944">
+                                  <path d="M22,34 L0,122 L88.2969111,144.311804 L69.4703407,112.660922 C115.477526,80.2203075 167.820746,64 226.5,64 C273.718843,65.3143218 315.921075,75.5026791 353.106698,94.565072 L391.169912,42.2320658 C338.300336,14.0773553 283.410366,0 226.5,0 C159.173449,0 95.6668017,19.1989901 35.9800566,57.5969702 L22,34 Z" id="Trazado"></path>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+                      
+                    </div>
+                    <div class="service-cycle-img" 
+                         style="background-image: url('<?= esc_url($item['image'] ?? '') ?>')">
+                    </div>
+                  </div>
+                </div>
+
+  <div class="col-8 pt-20 ps-20">
+                  <h6 class="over-title"><?= esc_html($item['over-title'] ?? '') ?></h6>
+                  <h2 class="title"><?= esc_html($item['title'] ?? '') ?></h2>
+                  <p class="pe-5"><?= esc_html($item['text'] ?? '') ?></p>
+                </div>
+  <?php endif; ?>
               </div>
             </div>
           </div>
-        </div>
+        <?php endforeach; ?>
+
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+
+      <?php if (count($items) > 1): ?>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      <?php endif; ?>
+
     </div>
   </div>
 </div>
-
-

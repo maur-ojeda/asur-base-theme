@@ -42,7 +42,7 @@ $block: "hero";
       @extend .text-uppercase;
       @extend .fw-semibold;
       // Desktop (por defecto)
-      font-size: 6.25rem;
+      font-size: 5.35rem;
       margin-bottom: -0.75rem;
 
       // Tablet (md y lg)
@@ -51,7 +51,8 @@ $block: "hero";
       }
       // Teléfono (sm y xs)
       @include media-breakpoint-down(md) {
-        font-size: 1.5rem;
+        font-size: 40px;
+        margin-bottom: 0.5rem;
       }
     }
   }

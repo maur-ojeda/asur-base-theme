@@ -1,0 +1,110 @@
+$block: "service-cycle";
+
+.#{$block} {
+  height: 400px;
+  .carousel-item,
+  .carousel-inner {
+    min-height: 400px;
+  }
+
+  .carousel-item {
+    height: 100%;
+  }
+  &-number {
+    @extend .position-absolute;
+    @extend .z-3;
+    @extend .d-flex;
+    @extend .justify-content-center;
+    @extend .align-items-center;
+    @extend .text-center;
+
+    top: 184px;
+    left: -30px;
+    border-radius: 50%;
+    background-color: $primary;
+    height: 60px;
+    width: 60px;
+    color: #fff;
+  }
+
+  &-number-right {
+    @extend .position-absolute;
+    @extend .z-3;
+    @extend .d-flex;
+    @extend .justify-content-center;
+    @extend .align-items-center;
+    @extend .text-center;
+
+    top: 184px;
+    right: -60px;
+    border-radius: 50%;
+    background-color: $primary;
+    height: 60px;
+    width: 60px;
+    color: #fff;
+  }
+
+  &-arrows {
+    svg {
+      height: 400px;
+      width: 400px;
+    }
+    @extend .position-absolute;
+    @extend .z-2;
+  }
+  &-img {
+    @extend .z-1;
+    @extend .position-absolute;
+    left: 37px;
+    top: 37px;
+    width: 326px;
+    height: 326px;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: lightgrey;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .rotate-clockwise {
+    transform: rotate(-170deg);
+  }
+}
+
+/* Animación: rotación antihoraria continua */
+@keyframes rotateAntiClockwise {
+  from {
+    transform: rotate(90deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* Aplica la animación solo cuando el slide está activo */
+.carousel-item.active .rotate-anticlockwise {
+  animation: rotateAntiClockwise 0.25s linear forwards;
+}
+
+.carousel-item:not(.active) .rotate-anticlockwise {
+  animation: none;
+}
+
+@keyframes rotateClockwise {
+  from {
+    transform: rotate(-90deg);
+  }
+  to {
+    transform: rotate(-170deg);
+  }
+}
+
+/* Aplica la animación solo cuando el slide está activo */
+.carousel-item.active .rotate-clockwise {
+  animation: rotateClockwise 0.25s linear;
+}
+
+.carousel-item:not(.active) .rotate-clockwise {
+  animation: none;
+}

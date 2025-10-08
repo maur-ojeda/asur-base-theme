@@ -11,8 +11,8 @@
   border: none;
   box-shadow: none;
   .card-image {
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* cuadrado */
     background-size: cover;
     background-position: center center;
   }
@@ -45,21 +45,26 @@
   }
 
   .carousel-control-prev {
-    left: -3.5%;
+    left: -4%;
   }
 
   .carousel-control-next {
-    right: -3.5%;
+    right: -4%;
   }
 }
 
 #projectsCarouselMobile {
+  width: 95%;
+  margin: auto;
+
   .carousel-control-prev {
-    left: -20%;
+    left: 0;
+    width: 10%;
   }
 
   .carousel-control-next {
-    right: -20%;
+    right: 0;
+    width: 10%;
   }
 
   .number {

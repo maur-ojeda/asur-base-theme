@@ -1,3 +1,22 @@
 .info-block {
   @extend .m-block;
+
+  // Tablet
+  @include media-breakpoint-down(lg) {
+    //max-height: 400px;
+  }
+  // Mobile
+  @include media-breakpoint-down(md) {
+    //max-height: 300px;
+  }
+  // Mobile
+  @include media-breakpoint-down(sm) {
+    //max-height: 250px;
+    .img-krom-wrapper {
+      margin: 1rem 0;
+      &::after {
+        display: none !important;
+      }
+    }
+  }
 }

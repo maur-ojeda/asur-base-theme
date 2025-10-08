@@ -2,10 +2,12 @@
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
+
+
+
 Container::make('post_meta', 'Contenido de empresa')
-    ->where('post_type', '=', 'page')
-    
- 
+    ->where('post_id', '=', get_page_id_by_slug('company'))
+
     ->add_fields([
                 Field::make( 'image', 'bg_company_imagen', 'Imagen de fondo' )
                 ->set_value_type('url'),
@@ -34,8 +36,18 @@ Container::make('post_meta', 'Contenido de empresa')
                     ->set_width(33),    
                 Field::make( 'image', 'crb_company_img', 'Imagen de equipo')
                     ->set_value_type('url')
-                        ->set_width(33),    
-           
-
-
-    ]);
+                        ->set_width(33),        
+                    ]);
+   Container::make('post_meta', 'service cycle')
+            ->where('post_type', '=', 'page')
+            ->add_fields([
+            Field::make('association', 'selected_service_cycle', 'Seleccionar service cycle')
+                ->set_types([
+                    [
+                        'type' => 'post',
+                        'post_type' => 'service-cycle'
+                    ]
+                ])
+            ->set_duplicates_allowed( false )
+            ->set_help_text('Selecciona los service-cycle  que se mostrarán en esta página.')
+        ]);
