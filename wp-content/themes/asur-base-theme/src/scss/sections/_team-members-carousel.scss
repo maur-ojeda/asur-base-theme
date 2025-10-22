@@ -1,0 +1,30 @@
+.text-custom-orange {
+  color: #f7a38f;
+}
+
+.team-member-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.team-member-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Efecto de superposición (overlay) */
+.team-member-card .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(0deg, #ee5135 0%, rgba(238, 81, 53, 0) 72.55%);
+  color: white !important;
+  text-align: center;
+}
+
+.team-member-card:hover .overlay {
+  //  transform: translateY(0);
+}

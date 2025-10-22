@@ -47,23 +47,18 @@ if ($item->have_posts()) : ?>
 
 
 
- <section class="py-5 bg-light">
+ <section class="py-5 mb-20">
             <div class="container">
-
-
                 <div class="row mb-5" data-aos="fade" data-aos-delay="200">
                     <div class="col-12">
-                        <h6 class="text-uppercase fw-bold custom-orange"><?= esc_html($overtitle); ?></h6>
-                        <h2 class="display-5 fw-bold"><?= esc_html($title); ?></h2>
+                        <h6 class="over-title"><?= esc_html($overtitle); ?></h6>
+                        <h2 class="title"><?= esc_html($title); ?></h2>
                     </div>
                 </div>
-
-
                 <div class="row row-cols-2 row-cols-md-4 g-5 align-items-center justify-content-center">
                     <?php foreach ($partners as $partner):
                         $partner_logo = !empty($partner['client_logo']) ? esc_url($partner['client_logo']) : $default_logo;
                     ?>
-
         <div class="col text-center">
             <img src="<?= ensure_https($partner_logo); ?>" class="img-fluid"  alt="Logo">
         </div>

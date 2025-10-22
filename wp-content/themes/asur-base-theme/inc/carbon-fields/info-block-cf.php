@@ -58,9 +58,9 @@ Container::make('post_meta', 'Campos de Info Block')
     ]);
 
 
-   Container::make('post_meta', 'info blocks Asociados')
-        ->where('post_type', '=', 'page')
-        ->add_fields([
+Container::make('post_meta', 'info blocks Asociados')
+    ->where('post_type', '=', 'page')
+    ->add_fields([
         Field::make('association', 'selected_info_blocks', 'Seleccionar info blocks')
             ->set_types([
                 [
@@ -68,9 +68,6 @@ Container::make('post_meta', 'Campos de Info Block')
                     'post_type' => 'info-block'
                 ]
             ])
-        ->set_duplicates_allowed( false )
-        ->set_help_text('Selecciona los info blocks que se mostrarán en esta página.')
+            ->set_duplicates_allowed(false)
+            ->set_help_text('Selecciona los info blocks que se mostrarán en esta página.')
     ]);
-
-
-    

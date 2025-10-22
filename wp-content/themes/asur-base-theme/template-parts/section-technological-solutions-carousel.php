@@ -1,4 +1,3 @@
-
 <?php
 
 
@@ -13,7 +12,6 @@ $section_data = null;
 if ($section_query->have_posts()) {
     $section_query->the_post();
     $section_data = [
-//        'subtitle' => carbon_get_post_meta(get_the_ID(), 'crb_section_subtitle'),
         'title'    => get_the_title(),
         'content'  => get_the_content(),
     ];
@@ -57,18 +55,17 @@ if ($item->have_posts()):
         return;
     }
 
-    // === CARRUSEL PARA MOBILE (1 por slide) ===
-    ?>
+?>
     <div class="container py-20 my-20">
         <div class="row align-items-center">
             <div class="col-lg-5 mb-4 mb-lg-0">
                 <h6 class="over-title">Soluciones Tecnológicas</h6>
-                <h2 class="title"> <?= $section_data && !empty($section_data['title']) 
-                        ? esc_html($section_data['title']) 
-                        : 'SISTEMAS INTELIGENTES'; ?></h2>
-                 <p>
-                    <?= $section_data && !empty($section_data['content']) 
-                        ? wp_kses_post($section_data['content']) 
+                <h2 class="title"> <?= $section_data && !empty($section_data['title'])
+                                        ? esc_html($section_data['title'])
+                                        : 'SISTEMAS INTELIGENTES'; ?></h2>
+                <p>
+                    <?= $section_data && !empty($section_data['content'])
+                        ? wp_kses_post($section_data['content'])
                         : 'Nos especializamos en acompañar a nuestros clientes en sus procesos de transformación digital, facilitando la convergencia IT/OT y aplicando metodologías ágiles para acelerar la innovación, reducir costos, mejorar la eficiencia y garantizar la adaptabilidad frente a los desafíos de la industria 4.0.'; ?>
                 </p>
             </div>
@@ -84,17 +81,17 @@ if ($item->have_posts()):
                                         <div class="card border-0 rounded-4 overflow-hidden h-100">
 
 
-                                        
+
                                             <div class="position-relative">
                                                 <?php
-                                                $img_url = $material['image_id'] 
+                                                $img_url = $material['image_id']
                                                     ? $material['image_id']
                                                     : 'https://placehold.co/600x800';
                                                 ?>
-                                                
+
                                                 <img src="<?= esc_url($img_url); ?>" class="card-img-top" alt="<?= esc_attr($material['title']); ?>">
-                                                
-                                                
+
+
                                             </div>
                                             <div class="card-body">
                                                 <p class="card-text fw-bold"><?= esc_html($material['title']); ?></p>
@@ -146,16 +143,16 @@ if ($item->have_posts()):
 
 
                                                     <?php
-                                                    $img_url = $material['image_id'] 
-                                                        ? $material['image_id'] 
+                                                    $img_url = $material['image_id']
+                                                        ? $material['image_id']
                                                         : 'https://placehold.co/600x800';
                                                     ?>
                                                     <img src="<?= esc_url($img_url); ?>" class="card-img-top" alt="<?= esc_attr($material['title']); ?>">
-                                                    
+
                                                 </div>
                                                 <div class="card-body p-0">
                                                     <p class="fw-semibold mt-2 mb-2"><?= esc_html($material['title']); ?></p>
-                                                    
+
                                                     <?php if ($material['file_esp']): ?>
                                                         <div class="d-flex justify-content-between align-items-center card-download-links">
                                                             <a href="<?= esc_url($material['file_esp']); ?>" target="_blank" class="text-decoration-none text-primary fw-semibold">PDF / ESP</a>

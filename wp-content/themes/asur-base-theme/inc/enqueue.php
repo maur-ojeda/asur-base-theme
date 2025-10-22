@@ -1,7 +1,8 @@
 <?php
 
 // Cargar CSS y JS del theme desde /dist/
-function asur_enqueue_assets() {
+function asur_enqueue_assets()
+{
     wp_enqueue_style(
         'asur-theme-style',
         get_template_directory_uri() . '/dist/css/style.min.css',
@@ -34,7 +35,7 @@ function asur_enqueue_assets() {
 
     wp_enqueue_script(
         'custom-contact-form',
-        get_template_directory_uri() . '/dist/js/contact-form.js', 
+        get_template_directory_uri() . '/dist/js/contact-form.js',
         ['jquery', 'jquery-validation'], // Añadido jquery-validation como dependencia
         filemtime(get_template_directory() . '/dist/js/contact-form.js'),
         true
@@ -43,5 +44,18 @@ function asur_enqueue_assets() {
     wp_localize_script('custom-contact-form', 'my_ajax_object', [
         'ajax_url' => admin_url('admin-ajax.php'),
     ]);
+
+
+    wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
+    wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', [], '11', true);
+
+
+    wp_enqueue_script(
+        'google-maps-api',
+        'https://maps.googleapis.com/maps/api/js?key=' . rawurlencode(GOOGLE_MAPS_API_KEY),
+        [],
+        null,
+        true
+    );
 }
 add_action('wp_enqueue_scripts', 'asur_enqueue_assets');

@@ -51,14 +51,14 @@
 
 
 
-    <div class="container-krom py-5 mt-20">
+    <div class="container py-5 mt-20">
      <div class="row mb-4">
         <div class="col-12">
-            <h6 class="over-title"><?= $custom_over_title ?></h6>
-            <h1 class="title"><?php echo $custom_title ? esc_html($custom_title) : single_term_title('', false); ?></h1>
+            <h6 class="over-title text-uppercase"><?= $custom_over_title ?></h6>
+            <h1 class="title text-uppercase"><?php echo $custom_title ? esc_html($custom_title) : single_term_title('', false); ?></h1>
         </div>
     </div>
-    <div class="row g-4 justify-content-center py-5 mt-10 mb-20">
+    <div class="row g-4 justify-content-left py-5 mt-10 mb-20">
         <?php if (!empty($child_terms) && !is_wp_error($child_terms)) : ?>
             <?php foreach ($child_terms as $child_term) :
                 $term_description = carbon_get_term_meta($child_term->term_id, 'linea_producto_descripcion');
@@ -70,8 +70,8 @@
                         <img src="<?php echo esc_url($term_image_url); ?>" class="card-img-top" alt="<?php echo esc_attr($child_term->name); ?>">
                     <?php endif; ?>
                     <div class="card-body">
-                        <h5 class="fs-4"><?php echo esc_html($child_term->name); ?></h5>
-                        <p class="carfs-sm"><?php echo esc_html($term_description); ?></p>
+                        <h5 class="fs-4 text-uppercase"><?php echo esc_html($child_term->name); ?></h5>
+                        <p class="fs-sm"><?php echo esc_html($term_description); ?></p>
                     </div>
                    <div class="card-footer border-0 d-flex">
     
@@ -166,7 +166,7 @@ if ( ! empty( $innovaciones_data ) ) {
             </div>
         </div>
         
-        <div class="col-12 col-lg-4 d-flex flex-column align-items-center mt-5 mt-lg-0">
+        <div class="col-12 col-lg-3 d-flex flex-column align-items-left mt-5 mt-lg-0">
         
         
 
@@ -222,38 +222,7 @@ if ( ! empty( $innovaciones_data ) ) {
 
 
 
-                <?php echo $image_html; ?>
-
-
-
-        <div class="innovacion-card ">
-            <h3><?php echo esc_html( $crb_content_title ?: $innovacion->post_title ); ?></h3>
-            <p class="over-title"><?php echo esc_html( $crb_content_over_title ); ?></p>
-            
-            <?php if ( $crb_content_imagen ) : ?>
-                <img src="<?php echo esc_url( wp_get_attachment_image_url( $crb_content_imagen, 'large' ) ); ?>" alt="">
-            <?php endif; ?>
-
-            <div class="texto">
-                <?php echo apply_filters( 'the_content', $crb_content_texto ); ?>
-            </div>
-
-            <!-- Ejemplo con hero -->
-            <?php if ( $crb_hero_imagen ) : ?>
-                <div class="hero" style="background-image: url('<?php echo esc_url( wp_get_attachment_image_url( $crb_hero_imagen, 'full' ) ); ?>);">
-                    <div class="overlay <?php echo esc_attr( $crb_hero_overlay_opacity ); ?>" 
-                         style="background-color: <?php echo esc_attr( $crb_hero_background_color ); ?>;">
-                    </div>
-                    <h2><?php echo esc_html( $crb_hero_title ); ?></h2>
-                </div>
-            <?php endif; ?>
-
-            <a href="<?php echo esc_url( get_permalink( $post_id ) ); ?>" class="btn">Ver más</a>
-        </div>
-
-
-
-
+              
 
 
 <?php get_footer(); ?>

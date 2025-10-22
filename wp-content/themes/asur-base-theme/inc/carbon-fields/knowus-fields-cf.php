@@ -3,23 +3,28 @@
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
-
-
-
-Container::make('post_meta', 'Contenido de empresa')
-    ->where('post_id', '=', get_page_id_by_slug('company'))
-
+Container::make('post_meta', 'Contenido de Know Us')
+    ->where('post_id', '=', get_page_id_by_slug('know-us'))
     ->add_fields([
-        Field::make('image', 'bg_company_imagen', 'Imagen de fondo')
-            ->set_value_type('url'),
-        Field::make('complex', 'crb_company_item', 'Listado de ítems')
-            ->add_fields([
-                Field::make('text', 'title', 'Título'),
-                Field::make('rich_text', 'text', 'Texto'),
 
+        Field::make('separator', 'crb_knowus_separator_01', 'company Team carousel'),
+        Field::make('text', 'over-title', 'sobre título'),
+        Field::make('text', 'title', 'Título'),
+
+
+        Field::make('complex', 'crb_knowus_team', 'Integrantes del equipo')
+            ->add_fields([
+                Field::make('text', 'name', 'Nombre'),
+                Field::make('rich_text', 'description', 'Cargo o descripción'),
+                Field::make('image', 'photo', 'Foto del miembro')
+                    ->set_value_type('url'),
             ])
             ->set_layout('tabbed-horizontal'),
-        Field::make('separator', 'crb_company_separator_01', 'company Team Picture'),
+
+
+        Field::make('separator', 'crb_knowus_separator_02', 'company Team Picture'),
+
+
         Field::make('select', 'crb_company_op', 'Nivel de opacidad')
             ->add_options([
                 '' => 'Selecciona una opacidad',
@@ -39,8 +44,14 @@ Container::make('post_meta', 'Contenido de empresa')
             ->set_value_type('url')
             ->set_width(33),
     ]);
+
+
+
+
+
+
 Container::make('post_meta', 'service cycle')
-    ->where('post_id', '=', get_page_id_by_slug('company'))
+    ->where('post_id', '=', get_page_id_by_slug('know-us'))
     ->add_fields([
         Field::make('association', 'selected_service_cycle', 'Seleccionar service cycle')
             ->set_types([
@@ -51,18 +62,4 @@ Container::make('post_meta', 'service cycle')
             ])
             ->set_duplicates_allowed(false)
             ->set_help_text('Selecciona los service-cycle  que se mostrarán en esta página.')
-    ]);
-
-Container::make('post_meta', 'presence')
-    ->where('post_id', '=', get_page_id_by_slug('company'))
-    ->add_fields([
-        Field::make('association', 'selected_presences', 'Seleccionar presences')
-            ->set_types([
-                [
-                    'type' => 'post',
-                    'post_type' => 'presence'
-                ]
-            ])
-            ->set_duplicates_allowed(false)
-            ->set_help_text('Selecciona los presence que se mostrarán en esta página.')
     ]);

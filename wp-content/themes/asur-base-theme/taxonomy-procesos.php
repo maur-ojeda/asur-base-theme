@@ -65,15 +65,18 @@ if ( ! empty( $parent_data ) && isset( $parent_data[0]['id'] ) ) {
 
 
 
-        <div class="container-krom py-5 mt-20">
+        <div class="container py-5 mt-20 mb-20">
      <div class="row mb-4">
+        <div class="col-12 pb-5">
+            <a href="<?php echo esc_url($parent_link); ?>" class="btn btn-sm btn-krom"><i data-lucide="arrow-left"></i></a>
+        </div>
         <div class="col-12">
-            <h6 class="over-title"><?= $custom_over_title ?></h6>
-            <h1 class="title"><?php echo $custom_title ? esc_html($custom_title) : single_term_title('', false); ?></h1>
+            <h6 class="over-title text-uppercase"><?= $custom_over_title ?></h6>
+            <h1 class="title text-uppercase"><?php echo $custom_title ? esc_html($custom_title) : single_term_title('', false); ?></h1>
         </div>
     </div>
 
-    <div class="row g-4 justify-content-center">
+    <div class="row g-4 justify-content-left">
         <?php if (have_posts()) : ?>
             <?php while (have_posts()) : the_post(); ?>
 
@@ -100,35 +103,28 @@ if ( ! empty( $parent_data ) && isset( $parent_data[0]['id'] ) ) {
                 }
                 ?>
 
-                <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-3">
                     <div class="card border-0 h-100">
                         <?php if (has_post_thumbnail()) : ?>
                             <img src="<?php the_post_thumbnail_url('medium'); ?>" class="card-img-top" alt="<?php the_title_attribute(); ?>">
                         <?php endif; ?>
                         <div class="card-body">
-                            <h5 class="fs-4"><?php the_title(); ?></h5>
-                            <p class="fs-sm"><?php the_excerpt(); ?></p>
+                            <h5 class="fs-4 text-uppercase"><?php the_title(); ?></h5>
+                            <div class="fs-sm"><?php the_content(); ?></div>
                         </div>
                         <div class="card-footer border-0">
-                            
-                            
-
-
-
-                            
-
-
-                                <p class="mb-0"><a href="<?php echo esc_url($parent_link); ?>" class="btn btn-sm btn-krom"><i data-lucide="arrow-left"></i> Atras</a></p>
+                                
                             <?php if ($ficha_tecnica_link) : ?>
-                                <a href="<?php echo esc_url($ficha_tecnica_link); ?>" class="btn btn-sm btn-krom mt-2" download>Descargar Ficha Técnica <i data-lucide="download"></i></a>
+                                <a href="<?php echo esc_url($ficha_tecnica_link); ?>" class="btn w-100 btn-sm btn-krom mt-2" download>
+                                     Ficha Técnica <i data-lucide="download"></i></a>
                             <?php endif; ?>
                         </div>
                     </div>
                 </div>
             <?php endwhile; ?>
         <?php else : ?>
-            <div class="col-12">
-                <p>No se encontraron productos para este fabricante.</p>
+            <div class="col-12 vh-50">
+                <p>No se encontraron productos.</p>
             </div>
         <?php endif; ?>
     </div>

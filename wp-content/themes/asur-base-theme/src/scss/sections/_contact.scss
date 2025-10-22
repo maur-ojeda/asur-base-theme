@@ -33,20 +33,144 @@
   }
 }
 
-/*
+#contact-section {
+  .hero-section {
+    position: relative;
+    background-size: cover;
+    padding: 80px 0;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
 
+    background-color: rgba(255, 255, 255, 0.6);
+    background-blend-mode: lighten;
+  }
 
-// Tablet
-@include media-breakpoint-down(lg) {
-  max-height: 400px;
-}
-// Mobile
-@include media-breakpoint-down(md) {
-  max-height: 300px;
-}
-// Mobile
-@include media-breakpoint-down(sm) {
-  max-height: 250px;
-}
+  .lead {
+    font-family: $font-secondary;
+    color: var(--color-text);
+    line-height: 1.6;
+    font-weight: 400;
+  }
 
-*/
+  .hero-content {
+    padding: 40px;
+    max-width: 550px;
+  }
+
+  .hero-content h1 {
+    @extend .title;
+  }
+
+  /* --- ESTILOS DE LA LÍNEA DE TIEMPO (STEPS) --- */
+  .timeline-container {
+    position: relative;
+    //padding-left: 50px;
+    /* Espacio para la línea y los iconos */
+  }
+
+  .timeline-container::before {
+    /* Esta es la línea vertical */
+    content: "";
+    position: absolute;
+    top: 25px;
+    bottom: 100px;
+    left: 24px;
+    width: 3px;
+    background-color: $primary;
+    z-index: 2;
+  }
+
+  .step-item {
+    display: flex;
+    margin-bottom: 30px;
+  }
+
+  .step-icon-wrapper {
+    background-color: $primary;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin-right: 15px;
+    z-index: 3;
+  }
+
+  .step-icon {
+    color: white;
+    width: 24px;
+    height: 24px;
+  }
+
+  .step-text h5 {
+    color: $dark-krom;
+    @extend .fw-semibold;
+    @extend .fs-6;
+    @extend .text-uppercase;
+    @extend .mb-3;
+  }
+
+  .step-text p {
+    font-family: $font-secondary;
+    color: var(--color-text);
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  .shadow-lg {
+    box-shadow: 8px 6px 13.1px 2px rgba(238, 81, 53, 0.18) !important;
+  }
+
+  /* --- SECCIÓN DE CONTACTO (CARDS) --- */
+  .contact-card {
+    position: relative;
+    min-height: 200px;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    //justify-content: flex-end;
+    padding: 20px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .contact-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to top,
+      rgba(177, 126, 126, 0.7) 0%,
+      rgba(177, 126, 126, 0.1) 100%
+    );
+    z-index: 1;
+  }
+
+  .contact-card .card-content {
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 2;
+  }
+
+  .contact-card .card-icon {
+    margin-bottom: 10px;
+  }
+
+  .contact-card h5 {
+    color: white;
+    margin-bottom: 5px;
+  }
+
+  .contact-card p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+  }
+}

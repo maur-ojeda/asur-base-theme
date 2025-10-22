@@ -10,8 +10,8 @@ if (have_posts()) {
 
         // --- Generar el HTML ---
         ?>
-        <div class="container my-5">
-            <div class="text-start mb-4">
+        <div class="container mb-20">
+            <div class="text-start">
                 <p class="over-title">KROM INDUSTRY</p>
                 <h1 class="title">NUESTROS FINES</h1>
             </div>
