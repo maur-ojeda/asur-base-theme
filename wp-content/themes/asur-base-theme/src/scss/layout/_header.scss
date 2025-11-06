@@ -26,13 +26,22 @@
   .logo-color {
     display: block;
     height: 65px;
-    width: auto;
+    width: 182px;
   }
   .logo-white {
     display: none;
+    height: 65px;
+    width: 182px;
   }
 
   // Enlaces y botones
+  .nav-link.active {
+    color: $primary !important;
+  }
+  .dropdown-item.active {
+    background: transparent !important;
+  }
+
   .nav-link,
   .dropdown-item {
     color: #fff;
@@ -138,6 +147,13 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
+  .nav-link.active {
+    color: $primary !important;
+  }
+  .dropdown-item.active {
+    background: transparent !important;
+  }
+
   .nav-link,
   .navbar-brand {
     color: #000 !important;
@@ -156,11 +172,14 @@
   // Intercambiar logos
   .logo-color {
     display: none;
+    height: 65px !important;
+    width: 182px !important;
   }
+
   .logo-white {
     display: block;
     height: 65px !important;
-    width: 143 !important;
+    width: 182px !important;
   }
 
   // Dropdown en modo claro
@@ -246,12 +265,14 @@
   width: 60px;
 
   .gt_selector {
+    width: 120px;
+    color: #fff;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     border: none;
     background: transparent;
-    color: inherit;
+
     font: inherit;
     cursor: pointer;
     padding: 0.5rem 0.75rem;

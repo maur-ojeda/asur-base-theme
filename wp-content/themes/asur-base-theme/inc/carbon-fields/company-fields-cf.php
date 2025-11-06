@@ -4,8 +4,6 @@ use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
 
-
-
 Container::make('post_meta', 'Contenido de empresa')
     ->where('post_id', '=', get_page_id_by_slug('company'))
 
@@ -64,5 +62,5 @@ Container::make('post_meta', 'presence')
                 ]
             ])
             ->set_duplicates_allowed(false)
-            ->set_help_text('Selecciona los presence que se mostrarán en esta página.')
+            ->set_help_text('Selecciona los  que se mostrarán en esta página.')
     ]);

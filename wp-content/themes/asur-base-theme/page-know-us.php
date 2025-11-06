@@ -11,8 +11,8 @@ get_header(); ?>
                 <?php get_template_part('template-parts/section', 'call-to-action'); ?>
         </div>
         <div class="m-krom">
-                <?php get_template_part('template-parts/section', 'info-block', ['index' => 0]); ?>
-                <?php get_template_part('template-parts/section', 'info-block', ['index' => 1]); ?>
+                <?php get_template_part('template-parts/section', 'presence', ['index' => 0]); ?>
+                \
         </div>
         <?php get_template_part('template-parts/section', 'partners'); ?>
         <?php get_template_part('template-parts/section', 'form-home'); ?>

@@ -63,3 +63,17 @@ Container::make('post_meta', 'service cycle')
             ->set_duplicates_allowed(false)
             ->set_help_text('Selecciona los service-cycle  que se mostrarán en esta página.')
     ]);
+
+Container::make('post_meta', 'presence')
+    ->where('post_id', '=', get_page_id_by_slug('know-us'))
+    ->add_fields([
+        Field::make('association', 'selected_presences', 'Seleccionar presences')
+            ->set_types([
+                [
+                    'type' => 'post',
+                    'post_type' => 'presence'
+                ]
+            ])
+            ->set_duplicates_allowed(false)
+            ->set_help_text('Selecciona los  que se mostrarán en esta página.')
+    ]);

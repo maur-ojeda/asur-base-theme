@@ -39,7 +39,6 @@ if ($block) :
 ?>
 
 
-
     <section class="info-block">
         <div class="container mt-5">
             <?php if (($type === 'type-3' || $type === 'type-5') && $extraTitle && $extraOverTitle) : ?>

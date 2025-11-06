@@ -349,3 +349,11 @@ function render_contact_submission_metabox($post)
         echo '<p>No hay datos enviados.</p>';
     }
 }
+
+
+function allow_svg_uploads($mimes)
+{
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter('upload_mimes', 'allow_svg_uploads');

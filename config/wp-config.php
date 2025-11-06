@@ -152,3 +152,8 @@ require_once ABSPATH . 'wp-settings.php';
 
 /*google maps api key*/
 define('GOOGLE_MAPS_API_KEY', 'AIzaSyAy9qG2SrtXPONBCVFcbxfoyvTlhqG-u-Q');
+
+
+// Desactivar actualizaciones y llamadas externas
+define('WP_HTTP_BLOCK_EXTERNAL', true);
+define('WP_AUTO_UPDATE_CORE', false);

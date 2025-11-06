@@ -1,0 +1,43 @@
+$block: "presence-section";
+
+.#{$block} {
+  .img-krom-wrapper {
+    position: relative;
+    box-sizing: content-box;
+    &::after {
+      content: "";
+      @extend .d-block;
+      @extend .z-1;
+      background-color: $primary;
+      position: absolute;
+      border-radius: 0.125rem;
+    }
+  }
+
+  .img-krom-wrapper {
+    &.type-2 {
+      &::after {
+        top: 15%;
+        right: -1.25rem;
+        width: 2.5rem;
+        height: 45%;
+      }
+    }
+  }
+
+  #presenceCarousel {
+    padding-bottom: 3rem;
+  }
+
+  .carousel-indicators {
+    button {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background-color: $gray-500;
+      &.active {
+        background-color: $primary;
+      }
+    }
+  }
+}

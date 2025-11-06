@@ -15,7 +15,7 @@ services:
       MYSQL_PASSWORD: wordpress
 
   wordpress:
-    image: wordpress:6.5
+    build: .
     depends_on:
       - db
     volumes:

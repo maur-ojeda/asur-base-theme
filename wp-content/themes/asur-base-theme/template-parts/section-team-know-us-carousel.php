@@ -28,21 +28,23 @@ if (!empty($team_members)) :
     <div class="swiper team-swiper">
       <div class="swiper-wrapper">
         <?php foreach ($team_members as $member) :
-
-
-
           $photo_url = !empty($member['photo'])
             ? esc_url($member['photo'])
             : 'https://picsum.photos/300/400?random=' . abs(crc32($member['name'] ?? 'default'));
         ?>
           <div class="swiper-slide team-member-card">
-            <img src="<?php echo $photo_url; ?>" alt="<?php echo esc_attr($member['name'] ?? 'Miembro del equipo'); ?>">
-            <div class="overlay text-start">
-              <h4 class="text-white"><?php echo esc_html($member['name'] ?? ''); ?></h4>
-              <div class="description">
-                <?php echo isset($member['description']) ? wp_kses_post($member['description']) : ''; ?>
+            <div class="team-member-card-inner">
+              <img src="<?php echo $photo_url; ?>" alt="<?php echo esc_attr($member['name'] ?? 'Miembro del equipo'); ?>">
+              <div class="overlay text-start">
+                <h4 class="text-white"><?php echo esc_html($member['name'] ?? ''); ?></h4>
+                <div class="description">
+                  <?php echo isset($member['description']) ? wp_kses_post($member['description']) : ''; ?>
+                </div>
               </div>
             </div>
+
+
+
           </div>
         <?php endforeach; ?>
       </div>
@@ -56,7 +58,7 @@ if (!empty($team_members)) :
     document.addEventListener("DOMContentLoaded", function() {
       new Swiper('.team-swiper', {
         slidesPerView: 4,
-        spaceBetween: 20,
+        spaceBetween: 50,
         loop: true,
         freeMode: true,
         grabCursor: true,
