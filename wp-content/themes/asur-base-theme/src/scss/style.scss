@@ -4,38 +4,3 @@
 @import "helpers/helpers";
 @import "base/typography";
 @import "base/base";
-@import "layout/header";
-@import "layout/footer";
-@import "sections/hero";
-@import "sections/info-block";
-@import "sections/categoryshowcase";
-@import "sections/calltoaction";
-@import "sections/innovationProjectsCarousel";
-@import "sections/partnersCarousel";
-@import "sections/technologicalSolutionsCarousel";
-@import "sections/companyTeamPicture";
-@import "sections/partners";
-@import "sections/contact";
-@import "sections/forms";
-@import "sections/service-cycle";
-@import "sections/team-members-carousel";
-@import "sections/presence-carousel";
-
-/*@import "sections/us";
-
-@import "sections/investors";
-@import "sections/featuredproject";
-@import "sections/projects";
-@import "sections/services";
-@import "sections/whatwedo";
-@import "sections/products";
-@import "sections/gallerie";
-@import "sections/clients";
-@import "sections/testimonial";
-@import "sections/contact";
-*/
-.theme-indicator {
-  @extend .d-none;
-  background-color: black;
-  color: white;
-}

@@ -16,11 +16,10 @@
 
 use Carbon_Fields\Carbon_Fields;
 
-// Carga el autoloader de Composer para las dependencias.
 $autoload = __DIR__ . '/vendor/autoload.php';
 if (file_exists($autoload)) {
     require_once $autoload;
-    Carbon_Fields::boot(); // Inicializa Carbon Fields.
+    Carbon_Fields::boot();
 }
 
 // Incluye el Nav Walker personalizado para menús de Bootstrap.
@@ -32,10 +31,13 @@ require_once get_template_directory() . '/inc/shortcodes/contact-form.php';
 // Incluye el manejador AJAX para el envío del formulario de contacto.
 require_once get_template_directory() . '/inc/ajax/contact-form-handler.php';
 
+require_once get_template_directory() . '/inc/ajax/simulation-form-handler.php';
+
 // Incluye la función para encolar los scripts y estilos del tema.
 require_once get_template_directory() . '/inc/enqueue.php';
 
 require_once get_template_directory() . '/inc/reusable-blocks.php';
+
 
 
 // =============================================================================

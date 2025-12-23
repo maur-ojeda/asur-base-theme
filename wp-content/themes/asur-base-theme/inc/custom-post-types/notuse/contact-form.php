@@ -1,6 +1,7 @@
 <?php
 
-function register_cpt_contact_form() {
+function register_cpt_contact_form()
+{
     $labels = array(
         'name'                  => 'Formularios de Contacto',
         'singular_name'         => 'Formulario de Contacto',

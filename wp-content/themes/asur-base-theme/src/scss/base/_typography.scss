@@ -14,19 +14,3 @@ h6 {
   font-family: $font-primary;
   color: $body-color-title;
 }
-
-.fs-xxs {
-  font-size: 0.625rem;
-}
-
-.innovation {
-  ul {
-    margin-left: 2.5rem;
-  }
-  .list-unstyled li::before {
-    content: "■";
-    color: #ff6347;
-    font-size: 1.2rem;
-    margin-right: 0.5rem;
-  }
-}
